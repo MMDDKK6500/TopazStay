@@ -9,7 +9,34 @@ import SwiftUI
 
 struct TelaInicial: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            //Fundo em gradiente
+            LinearGradient(
+                gradient: Gradient(colors: [Color.gradienteAzul, Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            //Conteúdo de tela
+            VStack(spacing: 21) {
+                Spacer()
+                
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 244, height: 267)
+                
+                Text("Sua estadia sem complicação.")
+                    .font(.custom("Poppins-Regular", size: 20))
+                    .foregroundColor(.cinzaTexto)
+                    .opacity(0.8)
+        
+                Spacer()
+                
+            
+            }
+        
+        }
     }
 }
 
