@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		45C5106C2F85A4380049B5CD /* TopazStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopazStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4540B92B2F86D62A00D8BDA9 /* TopazStay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TopazStay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4540B92D2F86D62D00D8BDA9 /* Exceptions for "TopazStay" folder in "TopazStay" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 45C5106B2F85A4380049B5CD /* TopazStay */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		45C5106E2F85A4380049B5CD /* TopazStay */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4540B92D2F86D62D00D8BDA9 /* Exceptions for "TopazStay" folder in "TopazStay" target */,
+			);
 			path = TopazStay;
 			sourceTree = "<group>";
 		};
@@ -33,16 +46,8 @@
 			isa = PBXGroup;
 			children = (
 				45C5106E2F85A4380049B5CD /* TopazStay */,
-				45C5106D2F85A4380049B5CD /* Products */,
+				4540B92B2F86D62A00D8BDA9 /* TopazStay.app */,
 			);
-			sourceTree = "<group>";
-		};
-		45C5106D2F85A4380049B5CD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				45C5106C2F85A4380049B5CD /* TopazStay.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -67,7 +72,7 @@
 			packageProductDependencies = (
 			);
 			productName = TopazStay;
-			productReference = 45C5106C2F85A4380049B5CD /* TopazStay.app */;
+			productReference = 4540B92B2F86D62A00D8BDA9 /* TopazStay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,7 +100,7 @@
 			mainGroup = 45C510632F85A4380049B5CD;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 45C5106D2F85A4380049B5CD /* Products */;
+			productRefGroup = 45C510632F85A4380049B5CD;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -253,6 +258,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopazStay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TopazStay;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -289,6 +295,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TopazStay/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = TopazStay;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
