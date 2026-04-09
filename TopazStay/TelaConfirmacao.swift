@@ -8,10 +8,11 @@ import SwiftUI
 
 struct TelaConfirmacao: View {
     
-    @State private var nomeHotel: String = "NomeHotelVAR"
+    @State public var nomeHotel: String = "NomeHotelVAR"
+    @State public var valorTotal: Double = 1500.00
+ //   @State public var dataIDA: ColetarData.dataSelecionada
+   
     var body: some View {
-        // @State var moverCirculo = false
-        // Vstack{   Image(.logo)}
         
         ZStack {
             
@@ -47,21 +48,32 @@ struct TelaConfirmacao: View {
                   .padding(.vertical,-320)
                   .padding(.horizontal, 0)
                 
-          
-                /*Text(nomeHotel)
+                
+                //Valor Total
+              //  let valorFormatado = String(format: "%.2f", valorTotal)
+                Text("Valor total: R$\(String(format: "%.2f", valorTotal))")
                 .font(
-                    Font.custom("Rounded MPlus 1c", size: 30)
-                        .weight(.heavy)
+                    Font.custom("Poppin", size: 20)
                 )
-                .padding(.vertical,-240)
-                .padding(.leading, -110)*/
-                    /*Rectangle()
-                      .foregroundColor(.clear)
-                      .frame(width: 123, height: 43)
-                      .background(Color(red: 0, green: 0.65, blue: 0.76))
-                      .cornerRadius(5)
-                      .padding(.leading, -140)
-                      .padding(.bottom, -240)*/
+                .foregroundColor(.black)
+               
+                .padding(.top,-280)
+                .padding(.leading, 0)
+                
+                Text("09/11/2026 - 13/11/2026")
+                  .font(
+                    Font.custom("Poppins", size: 20)
+                      .weight(.medium)
+                  )
+                  .multilineTextAlignment(.center)
+                  .foregroundColor(Color(red: 0.38, green: 0.38, blue: 0.38).opacity(0.9))
+                .padding(.top,-250)
+                .padding(.leading, 0)
+                
+            
+       /*
+        Text("Inicio: \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
+        */
                 
             }
             
