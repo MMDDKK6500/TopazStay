@@ -23,7 +23,7 @@ struct PopupCartao: View {
                 Label("Adicionar um cartão", systemImage: "plus")
                     .foregroundStyle(Color.secondary)
                     .padding(5)
-                    .padding(.horizontal, 50)
+                    .padding(.horizontal, 60)
                     .background(
                         RoundedRectangle(cornerRadius: 5)
                             .fill(Color.white)
@@ -33,7 +33,7 @@ struct PopupCartao: View {
             .padding(.top, 20)
             .padding(.bottom, 5)
             
-            HStack{
+            HStack {
                 Button(action: doSomething) {
                     Text("Cancelar")
                         .foregroundStyle(Color.cinzaTexto)
@@ -51,7 +51,7 @@ struct PopupCartao: View {
                         .foregroundStyle(Color.white)
                         .font(Font.custom("Poppins-Medium", size: 20))
                         .padding(15)
-                        .padding(Edge.Set.horizontal)
+                        .padding(.horizontal)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(.bordaCartaoBotaoPopup)
@@ -59,10 +59,9 @@ struct PopupCartao: View {
                         )
                 }
             }
-            .padding(Edge.Set.horizontal, 0)
         }
         .padding()
-        .padding(Edge.Set.horizontal, 40)
+        .padding(Edge.Set.horizontal, 30)
         //.padding(Edge.Set.vertical, 10)
         .background(
             RoundedRectangle(cornerRadius: 12)
