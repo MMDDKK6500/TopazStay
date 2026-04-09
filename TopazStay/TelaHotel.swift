@@ -14,16 +14,24 @@ struct TelaHotel: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(hotel.imagem)
-                    .resizable()
-                    .scaledToFill()
-                    .containerRelativeFrame(.vertical) {
-                        size, axis in
-                        size * 0.35
+                ZStack(alignment: .topTrailing) {
+                    Image(hotel.imagem)
+                        .resizable()
+                        .scaledToFill()
+                        .containerRelativeFrame(.vertical) {
+                            size, axis in
+                            size * 0.35
+                        }
+                        .clipped()
+                        .ignoresSafeArea()
+                    Button(action: {/*toggle*/}) {
+                        Image(systemName: hotel.favorito ? "heart.fill" : "heart")
+                            .foregroundStyle(hotel.favorito ? .red : Color.secondary)
+                            .font(.title)
+                            .padding(.top, 60)
+                            .padding(.trailing, 20)
                     }
-                    .clipped()
-                    .ignoresSafeArea()
-                //.border(.green)
+                }
                 
                 VStack {
                     HStack {
@@ -75,7 +83,7 @@ struct TelaHotel: View {
 
 #Preview {
     
-    @Previewable let hotel: Hotel = Hotel(nome: "Hotel dos bão", local: "aqui", avaliacao: 5, descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana", imagem: "imagens/hoteis/2", quartos: [Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")], comentarios: "a")
+    @Previewable let hotel: Hotel = Hotel(nome: "Hotel dos bão", local: "aqui", avaliacao: 5, descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana", imagem: "imagens/hoteis/2", favorito: true, quartos: [Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")], comentarios: "a")
     
     TelaHotel(hotel: hotel)
 }

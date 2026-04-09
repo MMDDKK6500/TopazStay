@@ -11,6 +11,7 @@ struct Hotel {
     var avaliacao: Int
     var descricao: String
     var imagem: String
+    var favorito: Bool
     
     var quartos: [Quarto]
     
