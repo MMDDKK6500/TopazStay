@@ -47,36 +47,9 @@ struct TelaLogin: View {
                 //Inputs
                 VStack {
                     
-                    ZStack(alignment: .leading){
-                        if email.isEmpty {
-                            Text("E-mail")
-                                .foregroundColor(.cinzaTexto.opacity(0.8))
-                                .padding(.leading, 10)
-                        }
-                        
-                        TextField("", text: $email)
-                            .foregroundColor(.black)
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    TextFieldView(placeholder: "E-mail", texto: $email)
                     
-                    ZStack(alignment: .leading){
-                        if senha.isEmpty {
-                            Text("Senha")
-                                .foregroundColor(.cinzaTexto.opacity(0.8))
-                                .padding(.leading, 10)
-                        }
-                        
-                        SecureField("", text: $senha)
-                            .foregroundColor(.black)
-                    }
-                    .padding()
-                    .background(Color.white)
-                    .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5)
-                    
+                    SecureFieldView(placeholder: "Senha", texto: $senha)
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 8)
