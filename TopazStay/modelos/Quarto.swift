@@ -5,7 +5,10 @@
 //  Created by JOAO DUQUE NARDELLI WANDERMUREN on 09/04/26.
 //
 
-struct Quarto {
+import Foundation
+
+struct Quarto: Identifiable {
+    var id = UUID()
     var nome: String
     var descricao: String
     var maxPessoas: Int

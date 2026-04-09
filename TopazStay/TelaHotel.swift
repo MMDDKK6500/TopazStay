@@ -12,6 +12,7 @@ struct TelaHotel: View {
     var hotel: Hotel;
     
     var body: some View {
+        ScrollView {
             VStack {
                 Image(hotel.imagem)
                     .resizable()
@@ -22,7 +23,7 @@ struct TelaHotel: View {
                     }
                     .clipped()
                     .ignoresSafeArea()
-                    .border(.green)
+                //.border(.green)
                 
                 VStack {
                     HStack {
@@ -32,35 +33,49 @@ struct TelaHotel: View {
                     }
                     HStack {
                         Text(hotel.local)
+                            .font(Font.custom("Poppins-Regular", size: 15))
                         Spacer()
                     }
                     
                     HStack {
-                        Text("aaa")
+                        Text(String(hotel.avaliacao))
                         Spacer()
+                    }
+                    
+                    HStack {
+                        Text(hotel.descricao)
+                            .font(Font.custom("Poppins-Regular", size: 12))
+                            .foregroundStyle(Color.cinzaTexto)
+                        Spacer()
+                    }
+                    
+                    ForEach(hotel.quartos) { quarto in
+                        QuartoCard(quarto: quarto)
                     }
                     
                     Spacer()
                 }
                 .padding()
             }
-            .ignoresSafeArea()
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.gradienteAzul, Color.white],
-                            startPoint: .top,
-                            endPoint: .bottom,
-                        )
+        }
+        .ignoresSafeArea()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(
+                    LinearGradient(
+                        colors: [Color.gradienteAzul, Color.white],
+                        startPoint: .top,
+                        endPoint: .bottom,
                     )
-            )
+                )
+                .ignoresSafeArea()
+        )
     }
 }
 
 #Preview {
     
-    @Previewable let hotel: Hotel = Hotel(nome: "Hotel dos bão", local: "aqui", avaliacao: 5, descricao: "Hotel muito bom", imagem: "imagens/hoteis/2", quartos: [Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/5")], comentarios: "a")
+    @Previewable let hotel: Hotel = Hotel(nome: "Hotel dos bão", local: "aqui", avaliacao: 5, descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana", imagem: "imagens/hoteis/2", quartos: [Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")], comentarios: "a")
     
     TelaHotel(hotel: hotel)
 }
