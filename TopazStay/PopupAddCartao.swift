@@ -24,28 +24,14 @@ struct PopupAddCartao: View {
                 Text("Titular do cartão")
                 Spacer()
             }
-            TextField("s", text: $nome)
-                .padding(.leading, 10)
-                .padding(.vertical, 5)
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(Color.white)
-                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
-                    )
+            TextFieldView(placeholder: "Nome completo", texto: $nome)
             
             HStack {
                 Text("Número do cartão")
                 Spacer()
             }
             
-            TextField("XXXXXXXXXXXXXXXX", text: $numero)
-                .padding(.leading, 10)
-                .padding(.vertical, 5)
-                .background(
-                    RoundedRectangle(cornerRadius: 5)
-                        .fill(Color.white)
-                        .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
-                    )
+            TextFieldView(placeholder: "XXXXXXXXXXXXXXXX", texto: $numero)
             
             
             HStack {
@@ -57,28 +43,12 @@ struct PopupAddCartao: View {
             }
             .padding(.top, 5)
             HStack {
-                TextField("MM/AA", text: $validade)
-                    .padding(.leading, 10)
-                    .padding(.vertical, 5)
-                    .frame(maxWidth: 100)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.white)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
-                        )
+                TextFieldView(placeholder: "MM/AA", texto: $validade)
                 
                 
                 Spacer()
                 
-                TextField("XXX", text: $cvv)
-                    .padding(.leading, 10)
-                    .padding(.vertical, 5)
-                    .frame(maxWidth: 100)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.white)
-                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
-                        )
+                TextFieldView(placeholder: "XXX", texto: $cvv)
                 
             }
             .padding(.bottom, 10)
