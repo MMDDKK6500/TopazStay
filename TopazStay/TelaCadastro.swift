@@ -18,193 +18,95 @@ struct TelaCadastro: View {
     var body: some View {
         // @State var moverCirculo = false
        // Vstack{   Image(.logo)}
-        VStack {
-            Image(.logo)
-                .padding(.top,40)
-         
+        ZStack {
+            //Fundo em gradiente
+            LinearGradient(
+                gradient: Gradient(colors: [Color.gradienteAzul, Color.white]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
+            VStack {
+                HStack {
+                    Button(action: {
+                        // Ação para voltar de tela
+                        }) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: 25, weight: .bold))
+                                .foregroundColor(.cinzaTexto.opacity(0.6))
+                        }
+                    
+                    // campo de confirmação de senha
+                    Text("Criar conta")
+                        .font(
+                            Font.custom("Poppins-Regular", size: 30)
+                                .weight(.heavy)
+                        )
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.cinzaTexto.opacity(0.6))
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, 30)
                 
-            // campo de confirmação de senha
-            Text("Criar conta")
-                .font(
-                    Font.custom("Poppins-Medium", size: 30)
-                        .weight(.heavy)
-                )
-                .multilineTextAlignment(.center)
-                .foregroundColor(.gray)
-                .frame(width: 267, alignment: .top)
-               //  .position(x: 145, y: 70)
-               // .padding(.horizontal, -40)
-                .padding(.vertical,-340)
-                .padding(.leading, -110)
-            
-            Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 40)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-                    // .position(x: 200, y: 455)
-                    .padding(.horizontal, 0)
-                    .padding(.top, 40)
-            TextField("Nome completo", text: $name)
-                .textFieldStyle(.automatic) // Adds a visible border
-                            .font(
-                                Font.custom("Poppins", size: 15)
-                                    .weight(.heavy)
-                            )
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(.gray)
-                            .frame(width: 340,alignment: .top)
-                            //.position(x: 200, y: 440)
-                            .padding(.horizontal, 0)
-                            .padding(.top, -40)
-            
-            // campo de confirmação de senha
-            Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 40)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-            
-                    //.position(x: 200, y: 515)
-            TextField("E-Mail", text: $email)
-                .textFieldStyle(.automatic) // Adds a visible border
-                            .font(
-                                Font.custom("Poppins", size: 15)
-                                    .weight(.heavy)
-                            )
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(.gray)
-                            .frame(width: 340,alignment: .top)
-                            //.position(x: 200, y: 500)
-                            .padding(.horizontal, 0)
-                            .padding(.top, -40)
-            
-            
-            // campo de confirmação de senha
-            Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 40)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-                   // .position(x: 200, y: 575)
-          
-            SecureField("Senha", text: $password)
-                .textFieldStyle(.automatic) // Adds a visible border
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(.gray)
-                            .frame(width: 340,alignment: .top)
-                            //.position(x: 200, y: 560)
-                            .padding(.horizontal, 0)
-                            .padding(.top, -40)
-                            
-            
-            Text("Obs: A senha deve ter no mínimo 8 caracteres.")
-                .font(
-                    Font.custom("Poppins-Medium", size: 11)
-                        .weight(.heavy)
-                )
-                .multilineTextAlignment(.center)
-                .foregroundColor(.gray)
-                .frame(width: 267, alignment: .top)
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 244, height: 267)
+                    .padding(.top,40)
+             
+                //Inputs
+                VStack {
+                    TextFieldView(placeholder: "Nome completo", texto: $name).padding(.top, 50)
+                    TextFieldView(placeholder: "E-mail", texto: $email)
+                    SecureFieldView(placeholder: "Senha", texto: $password)
+                    Text("Obs: A senha deve ter no mínimo 8 caracteres.")
+                        .font(
+                            Font.custom("Poppins-Medium", size: 11)
+                                .weight(.heavy)
+                        )
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.cinzaTexto.opacity(0.5))
+                        .frame(width: 267, alignment: .top)
+                        .padding(.horizontal, 0)
+                        .padding(.top, -2)
+                        .padding(.leading, -80)
+                    SecureFieldView(placeholder: "Confirmar senha", texto: $comfirmPW).padding(.top, 10)
+                }
+                .padding(.horizontal, 20)
+                .padding(.top, 8)
+                    
+                Button(action: { print("Botao clicado")}){ // verificar dados e mudar tela
+                 Rectangle()
+                      .foregroundColor(.clear)
+                      .frame(width: 172, height: 54)
+                      .background(Color.botaoFiltros)
+                      .cornerRadius(10)
+                      .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
+                      
+                }
                 .padding(.horizontal, 0)
-                .padding(.top, -10)
-                .padding(.leading, -80)
-         
-            
-            
-            // campo de confirmação de senha
-            Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 353, height: 40)
-                    .background(.white)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-                   // .position(x: 200, y: 650)
-                    .padding(.horizontal, 0)
-                    .padding(.top, 10)
-            SecureField("Confirmar senha", text: $comfirmPW)
-                .textFieldStyle(.automatic) // Adds a visible border
-                            
-                            .multilineTextAlignment(.leading)
-                            .foregroundColor(.gray)
-                            .frame(width: 340,alignment: .top)
-                            //.position(x: 200, y: 635)
-                            .padding(.horizontal, 0)
-                            .padding(.top, -40)
-                
-            
-                
-            Button(action: { print("Botao clicado")}){ // verificar dados e mudar tela
-             Rectangle()
-                  .foregroundColor(.clear)
-                  .frame(width: 172, height: 54)
-                  .background(Color.botaoFiltros)
-                  .cornerRadius(10)
-                  .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-                  
-            }
-            .padding(.horizontal, 0)
-            .padding(.top, 40)
-         
+                .padding(.top, 40)
+             
 
-            Text("Cadastrar")
-             .font(
-                 Font.custom("Poppins-Regular", size: 20)
-                     .weight(.heavy)
-             )
-             .multilineTextAlignment(.center)
-             .foregroundColor(.white)
-             .frame(width: 267, alignment: .top)
-             .padding(.horizontal, 0)
-             .padding(.top, -50)
-           
+                Text("Cadastrar")
+                 .font(
+                     Font.custom("Poppins-Medium", size: 20)
+                         .weight(.heavy)
+                 )
+                 .multilineTextAlignment(.center)
+                 .foregroundColor(.white)
+                 .frame(width: 267, alignment: .top)
+                 .padding(.horizontal, 0)
+                 .padding(.top, -50)
+            
+        }
            
         }
-        .frame(width: 593, height: 852)
-        .background(
-        LinearGradient(
-        stops: [
-        Gradient.Stop(color: Color.gradienteAzul, location: 0.00),
-        Gradient.Stop(color: .white, location: 1.00),
-        ],
-        startPoint: UnitPoint(x: 0.5, y: 0),
-        endPoint: UnitPoint(x: 0.5, y: 1)
-        )
-        )
-
-        
     }
 }
 #Preview {
     TelaCadastro()
 }
-/* Button(action: { print("Botao clicado")}){
- Rectangle()
-      .foregroundColor(.clear)
-      .frame(width: 172, height: 54)
-      .background(Color.botaoFiltros)
-      .cornerRadius(10)
-      .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-     
-/* Rectangle()
-     .foregroundColor(.clear)
-     .frame(width: 172, height: 54)
-     .background(Color(red: 0, green: 0.5, blue: 0.58))
-     .cornerRadius(10)
-     .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-     .position(x: 200, y: 750)*/
-}
-.padding(.horizontal, 0)
-.padding(.bottom, -20)
 
-Text("Cadastrar")
- .font(
-     Font.custom("Poppins-Regular", size: 20)
-         .weight(.heavy)
- )
- .multilineTextAlignment(.center)
- .foregroundColor(.white)
- .frame(width: 267, alignment: .top)*/
