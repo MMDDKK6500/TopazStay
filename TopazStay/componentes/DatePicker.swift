@@ -11,13 +11,14 @@ enum Status{
 
     case estado1 // seleção de ida
     case estado2 // seleção de volta
-    case estado3 // confirmar
 }
 struct ColetarData: View {
     @State public var dataIDASelecionada = Date()
     @State public var dataVOLTASelecionada = Date()
     @State public var textoIDA: String = ""
     @State public var textoVolta: String = ""
+   
+    
     //@State public var textoIDA: String = ""
     @State public var estadoAtual: Status = .estado1
     
@@ -56,7 +57,7 @@ struct ColetarData: View {
                 .frame(width: 287, height: 19, alignment: .center)
                 .padding(.top, -230)
             
-            Text("Escolha o período da sua viagem")
+            Text("Escolha o período da sua viagem") 
                 .font(
                     Font.custom("Poppins Medium", size: 12)
                         .weight(.bold)
@@ -76,12 +77,7 @@ struct ColetarData: View {
             //Botao Confirmar
             
             Button(action: {
-              alternarEstado()
-                // selecionouvolta = true
-                //self.estadoAtual.estado1.toogle()
-                /* if(self.estadoAtual == .estado1){ estadoAtual = .estado2 }
-                 if(self.estadoAtual == .estado2){ estadoAtual = .estado3 }
-                 if(self.estadoAtual == .estado3){ estadoAtual = .estado1 }*/
+              alternarEstado() // alternar para  a segunda data
             })
             {
                 Rectangle()
@@ -112,46 +108,42 @@ struct ColetarData: View {
             
             // CALENDARIO
             ZStack{
-                DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
-                
-                    .datePickerStyle(.graphical)
-                    .frame(width: 320, height: -20)
-                    .scaleEffect(0.9)
-                    .padding(.top, 60)
-                
-                
+            
                 switch estadoAtual {
-                case .estado1:
-                    Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
-                        .padding(.top, -165)
-                        .padding(.leading, -150)
-                case .estado2:
-                    Text("Volta \(dataVOLTASelecionada.formatted(date: .numeric, time: .omitted))")
-                        .padding(.top, -165)
-                        .padding(.leading, 180)
-                case .estado3:
-                    Text("data selecionada")
-                        .padding(.top, -165)
-                        .padding(.leading, 180)
+                        case .estado1:
+                    DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
+                    
+                        .datePickerStyle(.graphical)
+                        .frame(width: 320, height: -20)
+                        .scaleEffect(0.9)
+                        .padding(.top, 60)
+                            Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
+                                .padding(.top, -165)
+                                .padding(.leading, -150)
+                           // var textoIDA = "\(dataIDASelecionada.formatted(date: .numeric, time: .omitted))"
+                          //  Text(textoIDA)
+                                //.padding(.top, -265)
+                               // .padding(.leading, -150)
+                        case .estado2:
+                    DatePicker("Escolha uma data", selection: $dataVOLTASelecionada, displayedComponents: [.date])
+                    
+                        .datePickerStyle(.graphical)
+                        .frame(width: 320, height: -20)
+                        .scaleEffect(0.9)
+                        .padding(.top, 60)
+                            Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
+                                .padding(.top, -165)
+                                .padding(.leading, -150)
+                            Text("Volta \(dataVOLTASelecionada.formatted(date: .numeric, time: .omitted))")
+                                .padding(.top, -165)
+                                .padding(.leading, 180)
+                            
+               
+                    
+                   
                 }
-                // colocar nas variaveis
+               
                 
-                
-                /*if(Status.estado1 == true){
-                 Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
-                 .padding(.top, -165)
-                 .padding(.leading, -150)
-                 }
-                 if (Status.estado2  == true){
-                 Text("Volta \(dataVOLTASelecionada.formatted(date: .numeric, time: .omitted))")
-                 .padding(.top, -165)
-                 .padding(.leading, 180)
-                 }
-                 if(Status.estado3  == true){
-                 Text("data selecionada")
-                 .padding(.top, -165)
-                 .padding(.leading, 180)
-                 }*/
                 
             }
         }
@@ -160,17 +152,18 @@ struct ColetarData: View {
         
     }
     
+    
+    // coletar data e alterar estado
     func alternarEstado() {
             switch estadoAtual {
             case .estado1:
                 estadoAtual = .estado2
                 print("Fui para o Estado 2")
             case .estado2:
-                estadoAtual = .estado3
-                print("Fui para o Estado 3")
-            case .estado3:
-                estadoAtual = .estado1
-                print("Voltei para o Estado 1")
+                
+                print(dataIDASelecionada)
+                print(dataVOLTASelecionada)
+                //executar comando para coletar datas e remover popup
                 
             }
         }

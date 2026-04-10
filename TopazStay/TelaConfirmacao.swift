@@ -34,6 +34,8 @@ struct TelaConfirmacao: View {
                 .padding(.horizontal,0)
                 .padding(.top ,20)
                 .padding(.bottom ,0)
+            
+            
             VStack{
                 Text(nomeHotel)
                   .font(
@@ -44,38 +46,112 @@ struct TelaConfirmacao: View {
                   .multilineTextAlignment(.center)
                   .foregroundColor(.black)
                   .minimumScaleFactor(0.4)
-                  //.maximumScaleFactor(1.0)
-                  .padding(.vertical,-320)
+                  .padding(.vertical,-300)
                   .padding(.horizontal, 0)
                 
                 
                 //Valor Total
-              //  let valorFormatado = String(format: "%.2f", valorTotal)
                 Text("Valor total: R$\(String(format: "%.2f", valorTotal))")
                 .font(
                     Font.custom("Poppin", size: 20)
                 )
                 .foregroundColor(.black)
                
-                .padding(.top,-280)
+                .padding(.top,-255)
                 .padding(.leading, 0)
                 
-                Text("09/11/2026 - 13/11/2026")
+                Text("09/11/2026 - 13/11/2026") // data coletada e editável
                   .font(
                     Font.custom("Poppins", size: 20)
                       .weight(.medium)
                   )
                   .multilineTextAlignment(.center)
-                  .foregroundColor(Color(red: 0.38, green: 0.38, blue: 0.38).opacity(0.9))
-                .padding(.top,-250)
-                .padding(.leading, 0)
+                  .foregroundColor(Color.cinzaTexto)
+                .padding(.top,-230)
+                .padding(.leading, -30)
                 
+                Button(action: { print("Botao editarclicado")}){
+                    Image(systemName: "square.and.pencil")
+                        .scaleEffect(1.5)
+                }
+                    .padding(.top,-245)
+                    .padding(.leading, 250)
+                  
+               
+                
+                } // Fim do V Stack
             
-       /*
-        Text("Inicio: \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
-        */
-                
+            
+            
+           // pencil
+            
+            
+            ZStack{
+                ScrollView{
+                    ForEach(0..<20, id: \.self){ indice in
+                        ConfirmacaoQuarto()
+                                   }
+                    
+                }
+                .frame(width:  200, height: 250)
+                .padding(.top, -100)
+
             }
+            
+            Text("Onde você deseja realizar o pagamento?")
+              .font(
+                Font.custom("Poppins", size: 14)
+                  .weight(.medium)
+              )
+              .foregroundColor(Color.laranjaObservacao)
+              .frame(width: 294, height: 17, alignment: .topLeading)
+              .padding(.top,320)
+              .padding(.leading, 0)
+            
+            
+            Button(action: { print("Botao hotel clicado")}){
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 123, height: 43)
+                    .background(Color.menuInferiorSuperior)
+                    .cornerRadius(5)
+            }
+                    .padding(.top,500)
+                    .padding(.leading, -140)
+                
+                Text("Hotel")
+                    .font(
+                        Font.custom("Poppins", size: 20)
+                            .weight(.medium)
+                    )
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .frame(width: 65, height: 15, alignment: .center)
+                    .padding(.top,500)
+                    .padding(.leading, -110)
+            
+            
+            Button(action: { print("Botao app clicado")}){
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 123, height: 43)
+                    .background(Color.menuInferiorSuperior)
+                    .cornerRadius(5)
+            }
+                    .padding(.top,500)
+                    .padding(.leading, 140)
+                
+                Text("Aplicativo")
+                    .font(
+                        Font.custom("Poppins", size: 20)
+                            .weight(.medium)
+                    )
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+                    .frame(width: 150, height: 15, alignment: .center)
+                    .padding(.top,500)
+                    .padding(.leading, 135)
+            
             
         }
         .frame(width: 493, height: 852)
