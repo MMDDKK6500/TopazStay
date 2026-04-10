@@ -9,6 +9,7 @@ import SwiftUI
 struct TelaConfirmacao: View {
     
     @State public var nomeHotel: String = "NomeHotelVAR"
+    @State public var somaValores: Double = 0.00
     @State public var valorTotal: Double = 1500.00
  //   @State public var dataIDA: ColetarData.dataSelecionada
    
@@ -36,6 +37,25 @@ struct TelaConfirmacao: View {
                 .padding(.bottom ,0)
             
             
+            ZStack{
+                ScrollView{
+                    ForEach(0..<4, id: \.self){ indice in
+                        ConfirmacaoQuarto(quarto: Quarto(
+                            nome: "Padrão",
+                            descricao: "Descrição genial",
+                            maxPessoas: 2,
+                            valor: 350,
+                            imagem: "imagens/quartos/8"
+                        ))
+                     //   somaValores += quarto.valor
+                                   }
+                    
+                }
+                .frame(width:  200, height: 250)
+                .padding(.top, -100)
+
+            }
+            
             VStack{
                 Text(nomeHotel)
                   .font(
@@ -51,6 +71,7 @@ struct TelaConfirmacao: View {
                 
                 
                 //Valor Total
+               // valorTotal = somaValores
                 Text("Valor total: R$\(String(format: "%.2f", valorTotal))")
                 .font(
                     Font.custom("Poppin", size: 20)
@@ -70,7 +91,7 @@ struct TelaConfirmacao: View {
                 .padding(.top,-230)
                 .padding(.leading, -30)
                 
-                Button(action: { print("Botao editarclicado")}){
+                Button(action: { print("Botao editar clicado")}){
                     Image(systemName: "square.and.pencil")
                         .scaleEffect(1.5)
                 }
@@ -86,17 +107,7 @@ struct TelaConfirmacao: View {
            // pencil
             
             
-            ZStack{
-                ScrollView{
-                    ForEach(0..<20, id: \.self){ indice in
-                        ConfirmacaoQuarto()
-                                   }
-                    
-                }
-                .frame(width:  200, height: 250)
-                .padding(.top, -100)
-
-            }
+         
             
             Text("Onde você deseja realizar o pagamento?")
               .font(
@@ -171,4 +182,5 @@ struct TelaConfirmacao: View {
 
 #Preview {
     TelaConfirmacao()
+    
 }
