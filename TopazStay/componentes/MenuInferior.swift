@@ -1,15 +1,15 @@
 //
-//  ContentView.swift
+//  MenuInferior.swift
 //  TopazStay
 //
-//  Created by JOAO DUQUE NARDELLI WANDERMUREN on 07/04/26.
+//  Created by AGATHA BARBOSA MARINHO DOS SANTOS on 10/04/26.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MenuInferior: View {
     var body: some View {
-    
+        
         TabView {
             Tab("Explorar", systemImage: "sparkles") {
                 TelaExplorar()
@@ -35,7 +35,7 @@ struct ContentView: View {
          
     }
 }
-
+ 
 #Preview {
-    ContentView()
+     MenuInferior()
 }
