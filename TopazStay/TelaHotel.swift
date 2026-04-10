@@ -61,6 +61,18 @@ struct TelaHotel: View {
                         QuartoCard(quarto: quarto)
                     }
                     
+                    HStack {
+                        Text("Comentários")
+                            .font(Font.custom("Rounded Mplus 1c ExtraBold", size: 25))
+                        Spacer()
+                    }
+                    .padding(.top, 20)
+                    .padding(.bottom, 0)
+                    
+                    ForEach(hotel.comentarios) { comentario in
+                        ComentarioCard(comentario: comentario)
+                    }
+                    
                     Spacer()
                 }
                 .padding()
@@ -83,7 +95,44 @@ struct TelaHotel: View {
 
 #Preview {
     
-    @Previewable let hotel: Hotel = Hotel(nome: "Hotel dos bão", local: "aqui", avaliacao: 5, descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana", imagem: "imagens/hoteis/2", favorito: true, quartos: [Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"), Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")], comentarios: "a")
+    @Previewable let hotel: Hotel = Hotel(
+        nome: "Hotel dos bão",
+        local: "aqui",
+        avaliacao: 5,
+        descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana",
+        imagem: "imagens/hoteis/2",
+        favorito: true,
+        quartos: [
+            Quarto(
+                nome: "Padrão",
+                descricao: "Descrição genial",
+                maxPessoas: 2,
+                valor: 350,
+                imagem: "imagens/quartos/8"
+            ),
+            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
+            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
+            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")],
+        comentarios: [
+            Comentario(
+                foto: "logo",
+                nome: "Guilherme",
+                avaliacao: 4,
+                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
+            ),
+            Comentario(
+                foto: "logo",
+                nome: "Guilherme",
+                avaliacao: 4,
+                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
+            ),
+            Comentario(
+                foto: "logo",
+                nome: "Guilherme",
+                avaliacao: 4,
+                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
+            )
+        ])
     
     TelaHotel(hotel: hotel)
 }

@@ -15,7 +15,7 @@ struct Hotel {
     
     var quartos: [Quarto]
     
-    var comentarios: String
+    var comentarios: [Comentario]
     
 }
 
