@@ -23,11 +23,13 @@ struct TelaReservas: View {
 
         
         VStack(alignment: .leading, spacing: 20) {
-            MenuSuperior(textoPesquisa: $pesquisa)
+            MenuSemBarraPesquisa()
                 .ignoresSafeArea()
             Text("Reservas")
                 .font(.custom("Poppins-Regular", size: 40))
                 .padding(.leading, 20)
+                .foregroundColor(.cinzaTexto.opacity(0.7))
+                
             
             Picker("Periodo", selection: $selectedPeriod) {
                 Text("Ativas").tag(selected.ativas)
