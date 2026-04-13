@@ -110,7 +110,7 @@ struct TelaHotel: View {
                                 ComentarioCard(comentario: comentario)
                             }
                         }
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 10)
                         
                         Spacer()
                     }

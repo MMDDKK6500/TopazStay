@@ -40,11 +40,16 @@ struct TelaExplorar: View {
                     VStack(spacing: 19){
                       
                         ForEach (hoteis) { hotel in
+                            NavigationLink {
+                                TelaHotel(hotel: hotel)
+                            } label: {
                                 HotelCard(hotel: hotel)
+                            }
                         }
                         
                     }
                     .padding()
+                    .padding(.horizontal, 10)
                     
                 }
                 .padding(.top, -20)

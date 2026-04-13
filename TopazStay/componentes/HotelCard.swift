@@ -16,6 +16,7 @@ struct HotelCard: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(hotel.nome)
                     .font(.custom("Rounded Mplus 1c ExtraBold", size: 23))
+                    .foregroundStyle(Color.black)
                 
                 Text(hotel.categoria.rawValue)
                     .font(.custom("Poppins-Regular", size: 12))
@@ -25,6 +26,7 @@ struct HotelCard: View {
                 
                 Text(hotel.local)
                     .font(.custom("Poppins-Regular", size: 15))
+                    .foregroundStyle(Color.black)
                 
                 // Estrelas
                 HStack(spacing: 0) {
@@ -36,10 +38,12 @@ struct HotelCard: View {
                 }
                 
                 HStack {
-                    Text("A partir de")
-                        .font(.custom("Poppins-Regular", size: 15))
-                    Text(String(hotel.preco))
-                        .font(.custom("Poppins-Medium", size: 15))
+                    Text("A partir de R$")
+                        .font(.custom("Poppins-Regular", size: 14))
+                        .foregroundStyle(Color.black)
+                    Text(String(format: "%.2f", hotel.preco))
+                        .font(.custom("Poppins-Medium", size: 14))
+                        .foregroundStyle(Color.black)
                 }
                 .padding(5)
             }

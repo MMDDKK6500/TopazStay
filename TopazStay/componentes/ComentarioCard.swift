@@ -54,7 +54,7 @@ struct ComentarioCard: View {
                     }
                     HStack {
                         Text(comentario.texto)
-                            .font(Font.custom("Poppins-Regular", size: 15))
+                            .font(Font.custom("Poppins-Regular", size: 13))
                         Spacer()
                     }
                     Spacer()

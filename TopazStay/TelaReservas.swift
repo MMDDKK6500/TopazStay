@@ -47,6 +47,13 @@ struct TelaReservas: View {
             
         }
         .ignoresSafeArea(edges: .top)
+        .background(
+            LinearGradient(
+                colors: [Color.gradienteAzul, Color.white],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        )
     }
 }
 
