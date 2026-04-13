@@ -43,12 +43,14 @@ struct ComentarioCard: View {
                         Text(comentario.nome)
                             .font(Font.custom("Rounded Mplus 1c Medium", size: 20))
                         Spacer()
-                        ForEach(1...comentario.avaliacao, id: \.self) { _ in
-                            Image(systemName: "star.fill")
-                                .foregroundStyle(Color.laranjaEscuroEstrela)
-                                .font(.title2)
+                        
+                        HStack(spacing: 0) {
+                            ForEach(0..<comentario.avaliacao, id: \.self) { _ in
+                                Image(systemName: "star.fill")
+                                    .foregroundColor(.laranjaEscuroEstrela)
+                                    .font(.system(size: 20))
+                            }
                         }
-                        .padding(.top, 0)
                     }
                     HStack {
                         Text(comentario.texto)
@@ -61,8 +63,9 @@ struct ComentarioCard: View {
                 .padding(.top, 0)
             }
             .padding(.top, 0)
+            .padding(.bottom, 5)
             Rectangle()
-                .foregroundStyle(.black)
+                .foregroundStyle(.black.opacity(0.5))
                 .frame(height: 1)
         }
         .padding(.top, 0)

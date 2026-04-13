@@ -11,6 +11,7 @@ struct TelaLogin: View {
     
     @State private var email: String = ""
     @State private var senha: String = ""
+    var aoLogar: () -> Void
     
     var body: some View {
         ZStack {
@@ -59,6 +60,7 @@ struct TelaLogin: View {
                 VStack(spacing: 53) {
                     Button(action: {
                         print("Login")
+                        aoLogar()
                     }) {
                         Text("Entrar")
                             .font(.custom("Poppins-Medium", size: 20))
@@ -89,5 +91,5 @@ struct TelaLogin: View {
 }
 
 #Preview {
-    TelaLogin()
+    TelaLogin(aoLogar: {print("Botão clicado!")})
 }

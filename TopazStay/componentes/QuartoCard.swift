@@ -19,6 +19,7 @@ struct QuartoCard: View {
     var quarto: Quarto
     // Estado que controla se o card está aberto ou fechado
     @State private var estaExpandido: Bool = false
+    var aoSelecionar: () -> Void
     
     var body: some View {
         VStack(spacing: 0) {
@@ -108,7 +109,7 @@ struct QuartoCard: View {
                             Spacer()
                             
                             // Botão azul ciano do design
-                            Button(action: { print("Selecionado: \(quarto.nome)") }) {
+                            Button(action: { aoSelecionar() }) {
                                 Text("Selecionar")
                                     .font(Font.custom("Poppins-Medium", size: 14))
                                     .foregroundColor(.white)
@@ -144,5 +145,16 @@ struct QuartoCard: View {
 }
 
 #Preview {
-    QuartoCard(quarto: Quarto(nome: "Padrão", descricao: "O ambiente é bem organizado, com decoração moderna e iluminação aconchegante.", maxPessoas: 2, valor: 350, imagem: "imagens/hoteis/3"))
+    QuartoCard(
+        quarto: Quarto(
+            nome: "Padrão",
+            descricao: "O ambiente é bem organizado, com decoração moderna e iluminação aconchegante.",
+            maxPessoas: 2,
+            valor: 350,
+            imagem: "imagens/hoteis/3"
+        ),
+        aoSelecionar: {
+            print("Botão clicado no Preview!")
+        }
+    )
 }
