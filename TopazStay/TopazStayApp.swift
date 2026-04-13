@@ -11,7 +11,7 @@ import SwiftUI
 struct TopazStayApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(hoteis: hoteis)
         }
     }
 }

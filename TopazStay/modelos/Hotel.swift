@@ -5,8 +5,11 @@
 //  Created by JOAO DUQUE NARDELLI WANDERMUREN on 09/04/26.
 //
 
-struct Hotel {
+import Foundation
+
+struct Hotel: Identifiable {
     
+    var id = UUID()
     var nome: String
     var local: String
     var avaliacao: Int

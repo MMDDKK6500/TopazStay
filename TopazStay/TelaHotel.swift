@@ -152,6 +152,7 @@ struct TelaHotel: View {
         descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana",
         imagem: "imagens/hoteis/2",
         favorito: true,
+        categoria: CategoriaHotel.hotel,
         quartos: [
             Quarto(
                 nome: "Padrão",
