@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct CardEscolha: View {
+    @State private var nomeHotel: String = ""
+    @State private var preco: Double = 350.00
+    @State private var quantidade: Int = 1
+    var quarto: Quarto
+    
     var body: some View {
+        
+        
         Rectangle()
             .foregroundColor(.clear)
             .frame(width: 320, height: 227)
@@ -16,7 +23,7 @@ struct CardEscolha: View {
             .cornerRadius(5)
             .padding(.top, 10)
         ZStack{
-            Text("Quarto Standard")
+            Text(quarto.nome)
                 .font(
                     Font.custom("Rounded Mplus 1c", size: 20)
                         .weight(.heavy)
@@ -26,7 +33,7 @@ struct CardEscolha: View {
                 .padding(.top, -230)
                 .padding(.leading, -60)
             
-            Text("R$ 350.00") // preço variável
+            Text("\(String(format: "%.2f", preco))") // preço variável
                 .font(
                     Font.custom("Poppins", size: 20)
                         .weight(.heavy)
@@ -36,7 +43,9 @@ struct CardEscolha: View {
                 .padding(.top, -200)
                 .padding(.leading, -60)
             
-            Button(action: { print("Botao subtrair clicado")}){
+            Button(action: {
+                if  quantidade >= 1 { quantidade -= 1}
+                print("Botao subtrair clicado")}){
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 50, height: 35)
@@ -54,7 +63,9 @@ struct CardEscolha: View {
                 .frame(width: 218, height: 30, alignment: .topLeading)
                 .padding(.top, -220)
                 .padding(.leading, 323)
-            Button(action: { print("Botao somar clicado")}){
+            Button(action: {
+                quantidade += 1
+                print("Botao somar clicado")}){
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 50, height: 35)
@@ -80,7 +91,7 @@ struct CardEscolha: View {
               .cornerRadius(10)
               .padding(.top, -220)
               .padding(.leading, 180)
-            Text("1")
+            Text(String(quantidade))
                 .font(
                     Font.custom("Poppins", size: 24)
                         .weight(.heavy)
@@ -159,5 +170,5 @@ struct CardEscolha: View {
     }
 }
 #Preview {
-    CardEscolha()
+    CardEscolha(quarto: hoteis.first!.quartos.first!)
 }

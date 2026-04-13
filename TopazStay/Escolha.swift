@@ -12,6 +12,8 @@ struct Escolha: View {
     @State private var offset:CGFloat = 60
     @State private var lastOffset: CGFloat = 0
     
+   
+    
     var body: some View {
         
         GeometryReader { geometry in
@@ -62,7 +64,13 @@ struct Escolha: View {
                                 ScrollView(.vertical){
                                     VStack(spacing: -10){ // espaçamento
                                         ForEach(0..<3){ // quantidade de quartos variável
-                                            card in CardEscolha()
+                                            card in CardEscolha(quarto: Quarto(
+                                                nome: "Padrão",
+                                                descricao: "Descrição genial",
+                                                maxPessoas: 2,
+                                                valor: 350,
+                                                imagem: "imagens/quartos/8"
+                                            ))
                                         }
                                     }
                                     
