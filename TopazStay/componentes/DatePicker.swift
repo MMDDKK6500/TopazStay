@@ -21,7 +21,8 @@ struct ColetarData: View {
     
     //@State public var textoIDA: String = ""
     @State public var estadoAtual: Status = .estado1
-    
+  //  @Binding var modificarBool: Bool
+  
     var body: some View{
         
         ZStack {
@@ -120,13 +121,9 @@ struct ColetarData: View {
                             Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
                                 .padding(.top, -165)
                                 .padding(.leading, -150)
-                           // var textoIDA = "\(dataIDASelecionada.formatted(date: .numeric, time: .omitted))"
-                          //  Text(textoIDA)
-                                //.padding(.top, -265)
-                               // .padding(.leading, -150)
                         case .estado2:
                     DatePicker("Escolha uma data", selection: $dataVOLTASelecionada, displayedComponents: [.date])
-                    
+                        
                         .datePickerStyle(.graphical)
                         .frame(width: 320, height: -20)
                         .scaleEffect(0.9)
@@ -137,15 +134,12 @@ struct ColetarData: View {
                             Text("Volta \(dataVOLTASelecionada.formatted(date: .numeric, time: .omitted))")
                                 .padding(.top, -165)
                                 .padding(.leading, 180)
-                            
                
-                    
-                   
                 }
                
-                
-                
             }
+            
+            
         }
         .frame(width: 369, height: 529)
         .background(.white.opacity(0))
@@ -160,10 +154,9 @@ struct ColetarData: View {
                 estadoAtual = .estado2
                 print("Fui para o Estado 2")
             case .estado2:
-                
                 print(dataIDASelecionada)
                 print(dataVOLTASelecionada)
-                //executar comando para coletar datas e remover popup
+            
                 
             }
         }
@@ -173,37 +166,9 @@ struct ColetarData: View {
 
 
 #Preview{
+     
     ColetarData()
 }
 
 
-//Anotações calendario
-/*NavigationStack{
-     Form{
-         Section("Selecao de periodo"){
-             DatePicker("Inicio", selection: $dataIDASelecionada, displayedComponents: .date)
-             
-             DatePicker("Fim", selection: $dataVOLTASelecionada, displayedComponents: .date)
-         }
-         
-     }
- }
- VStack{
- DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
- .datePickerStyle(.graphical)
- .padding()
- 
- //COLETA DE DADOS E DISPLAY DO TEXTO DA DATA
- Text("Inicio: \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
- }*/
- /*var body: some View{
-  VStack{
-  DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
-  .datePickerStyle(.graphical)
-  .padding()
-  
-  //COLETA DE DADOS E DISPLAY DO TEXTO DA DATA
-  Text("Inicio: \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
-  }
-  }*/
 

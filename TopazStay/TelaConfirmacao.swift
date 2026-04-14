@@ -11,8 +11,10 @@ struct TelaConfirmacao: View {
     @State public var nomeHotel: String = "NomeHotelVAR"
     @State public var somaValores: Double = 0.00
     @State public var valorTotal: Double = 1500.00
- //   @State public var dataIDA: ColetarData.dataSelecionada
-   
+     
+    @State private var estaApresentado: Bool = false
+    
+    
     var body: some View {
         
         ZStack {
@@ -91,7 +93,12 @@ struct TelaConfirmacao: View {
                 .padding(.top,-230)
                 .padding(.leading, -30)
                 
-                Button(action: { print("Botao editar clicado")}){
+                Button(action: {
+                    estaApresentado  = true
+                    
+                 print("Botao editar clicado")
+                       
+                }){
                     Image(systemName: "square.and.pencil")
                         .scaleEffect(1.5)
                 }
@@ -101,13 +108,6 @@ struct TelaConfirmacao: View {
                
                 
                 } // Fim do V Stack
-            
-            
-            
-           // pencil
-            
-            
-         
             
             Text("Onde você deseja realizar o pagamento?")
               .font(
@@ -169,10 +169,14 @@ struct TelaConfirmacao: View {
                     .padding(.top,500)
                     .padding(.leading, 135)
             
-            
+            if estaApresentado == true{
+                ZStack{
+                    ColetarData()
+                }.animation(.spring(), value: estaApresentado)
+            }
            
             
-        }
+        } // fim do Z Stack
         .frame(width: 493, height: 852)
         .background(
           LinearGradient(
@@ -184,11 +188,18 @@ struct TelaConfirmacao: View {
             endPoint: UnitPoint(x: 0.5, y: 1)
           )
         )
+        
+        
+      
     }
 }
 
 
 #Preview {
+    
     TelaConfirmacao()
+   
+    
+    
     
 }
