@@ -9,17 +9,16 @@ import SwiftUI
 
 struct PopupPix: View {
     
-    @Binding var isPresented: Bool;
+    @Binding var mostrar: Bool
     
     var body: some View {
         
-        if (isPresented) {
-            
             VStack {
                 Text("Leia o QR-Code")
-                    .font(Font.custom("Rounded Mplus 1c ExtraBold", size: 30))
+                    .font(Font.custom("Rounded Mplus 1c ExtraBold", size: 22))
+                    .padding(.top, 15)
                 
-                Image("logo")
+                Image("qrcode")
                     .resizable()
                     .scaledToFit()
                     .containerRelativeFrame(.horizontal) { size, axis in
@@ -33,13 +32,18 @@ struct PopupPix: View {
                         .foregroundStyle(Color.black)
                 }
                 
-                Button(action: doSomething) {
+                Button(action: {
+                    withAnimation {
+                        mostrar = false
+                    }
+                    
+                }){
                     Text("Cancelar")
                         .foregroundStyle(Color.white)
-                        .font(Font.custom("Poppins-Medium", size: 20))
+                        .font(Font.custom("Poppins-Medium", size: 15))
                         .padding(15)
                         .background(
-                            RoundedRectangle(cornerRadius: 12)
+                            RoundedRectangle(cornerRadius: 5)
                                 .fill(.bordaCartaoBotaoPopup)
                                 .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
                         )
@@ -58,7 +62,7 @@ struct PopupPix: View {
                         )
                     )
             )
-        }
+        
     }
 }
 
@@ -68,7 +72,7 @@ func doSomething() {
 
 #Preview {
     
-    @Previewable @State var state = false
+    @Previewable @State var mostrar = true
     
-    PopupPix(isPresented: $state)
+    PopupPix(mostrar: $mostrar)
 }

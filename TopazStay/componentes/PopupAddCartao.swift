@@ -13,21 +13,26 @@ struct PopupAddCartao: View {
     @State var numero: String = ""
     @State var validade: String = ""
     @State var cvv: String = ""
+    @Binding var mostrar: Bool
     
     var body: some View {
         VStack {
             Text("Cadastro de Cartão")
-                .font(Font.custom("Rounded Mplus 1c ExtraBold", size: 25))
-                .padding(.bottom, 5)
+                .font(Font.custom("Rounded Mplus 1c ExtraBold", size: 22))
+                .padding(20)
             
             HStack {
                 Text("Titular do cartão")
+                    .font(Font.custom("Poppins-Regular", size: 13))
+                    .padding(.bottom, -5)
                 Spacer()
             }
             TextFieldView(placeholder: "Nome completo", texto: $nome)
             
             HStack {
                 Text("Número do cartão")
+                    .font(Font.custom("Poppins-Regular", size: 13))
+                    .padding(.bottom, -5)
                 Spacer()
             }
             
@@ -36,10 +41,14 @@ struct PopupAddCartao: View {
             
             HStack {
                 Text("Data de validade")
+                    .font(Font.custom("Poppins-Regular", size: 13))
+                    .padding(.bottom, -5)
                 
                 Spacer()
                 
                 Text("CVV/CVC")
+                    .font(Font.custom("Poppins-Regular", size: 13))
+                    .padding(.bottom, -5)
             }
             .padding(.top, 5)
             HStack {
@@ -54,10 +63,14 @@ struct PopupAddCartao: View {
             .padding(.bottom, 10)
             
             HStack {
-                Button(action: doSomething) {
+                Button(action: {
+                    withAnimation {
+                        mostrar = false
+                    }
+                }) {
                     Text("Cancelar")
                         .foregroundStyle(Color.cinzaTexto)
-                        .font(Font.custom("Poppins-Medium", size: 20))
+                        .font(Font.custom("Poppins-Medium", size: 15))
                         .padding(15)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
@@ -69,7 +82,7 @@ struct PopupAddCartao: View {
                 Button(action: doSomething) {
                     Text("Cadastrar")
                         .foregroundStyle(Color.white)
-                        .font(Font.custom("Poppins-Medium", size: 20))
+                        .font(Font.custom("Poppins-Medium", size: 15))
                         .padding(15)
                         .background(
                             RoundedRectangle(cornerRadius: 12)
@@ -96,5 +109,7 @@ struct PopupAddCartao: View {
 }
 
 #Preview {
-    PopupAddCartao()
+    @Previewable @State var mostrar = true
+    
+    PopupAddCartao(mostrar: $mostrar)
 }
