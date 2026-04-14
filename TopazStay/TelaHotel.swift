@@ -13,6 +13,7 @@ struct TelaHotel: View {
     //Estados para controlar o Popup
     @State private var mostrarPopup = false
     @State private var quartoParaPopup: Quarto? = nil
+    @State private var menuInferior = false
     
     var body: some View {
         ZStack {
@@ -120,9 +121,11 @@ struct TelaHotel: View {
             .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
             .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoque
             
-            Escolha(quartos: hoteis[0].quartos)
-            .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
-            .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoqu
+            if(menuInferior == true){
+                    Escolha(quartos: hoteis[0].quartos)
+                    .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
+                    .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoqu
+            }
             
             // --- CAMADA DO POPUP ---
             if mostrarPopup, let quarto = quartoParaPopup {
@@ -134,7 +137,7 @@ struct TelaHotel: View {
                     }
                 
                 // Card de Detalhes (Popup)
-                PopupQuarto(quarto: quarto, mostrar: $mostrarPopup)
+                PopupQuarto(quarto: quarto, mostrar: $mostrarPopup, menuInferiorMostrar: $menuInferior)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                     .zIndex(1)
             }

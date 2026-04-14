@@ -11,6 +11,8 @@ struct PopupQuarto: View {
     var quarto: Quarto
     @Binding var mostrar: Bool
     @State private var quantidade = 1
+    @Binding var menuInferiorMostrar: Bool
+    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -57,7 +59,10 @@ struct PopupQuarto: View {
                 }
                 
                 // Botão de ação
-                Button(action: { withAnimation { mostrar = false } }) {
+                Button(action: { withAnimation {
+                    menuInferiorMostrar = true
+                    mostrar = false
+                } }) {
                     Text("Adicionar a reserva")
                         .font(Font.custom("Poppins-Medium", size: 16))
                         .foregroundColor(.white)
@@ -92,6 +97,8 @@ struct PopupIconRow: View {
 #Preview {
     
     @Previewable @State var mostrar = true
+    @Previewable @State var mostrarTelaInferior = false
+    PopupQuarto(quarto: hoteis[0].quartos[0], mostrar: $mostrar, menuInferiorMostrar: $mostrarTelaInferior)
     
-    PopupQuarto(quarto: hoteis[0].quartos[0], mostrar: $mostrar)
+    
 }

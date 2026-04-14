@@ -122,7 +122,7 @@ struct TelaConfirmacao: View {
             
            
         
-                NavigationLink {
+                NavigationLink { //Tela Pagamento Reserva
                     PagamentoReserva()
                 } label: {
                     Rectangle()
@@ -130,13 +130,10 @@ struct TelaConfirmacao: View {
                         .frame(width: 123, height: 43)
                         .background(Color.menuInferiorSuperior)
                         .cornerRadius(5)
-                        .padding(.top,500)
-                        .padding(.leading, -140)
                 }
+                .padding(.top,500)
+                .padding(.leading, -140)
               
-            
-                    
-                
                 Text("Hotel")
                     .font(
                         Font.custom("Poppins", size: 20)
@@ -149,17 +146,17 @@ struct TelaConfirmacao: View {
                     .padding(.leading, -110)
             
             
-            NavigationLink {
-                PagamentoApp()
+            NavigationLink { // Tela Pagamento App
+                 PagamentoApp()
             } label: {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 123, height: 43)
                     .background(Color.menuInferiorSuperior)
                     .cornerRadius(5)
-                    .padding(.top,500)
-                    .padding(.leading, 140)
             }
+            .padding(.top,500)
+            .padding(.leading, 140)
                 
                 Text("Aplicativo")
                     .font(
