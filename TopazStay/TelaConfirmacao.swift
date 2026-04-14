@@ -18,8 +18,7 @@ struct TelaConfirmacao: View {
     var body: some View {
         
         ZStack {
-            
-          
+        
                 Text("Confirmar reserva")
                 .font(
                     Font.custom("Poppins Regular", size: 30)
@@ -171,7 +170,7 @@ struct TelaConfirmacao: View {
             
             if estaApresentado == true{
                 ZStack{
-                    ColetarData()
+                    ColetarData(estaApresentado: $estaApresentado)
                 }.animation(.spring(), value: estaApresentado)
             }
            

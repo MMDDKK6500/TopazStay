@@ -8,7 +8,6 @@ import SwiftUI
 
 
 enum Status{
-
     case estado1 // seleção de ida
     case estado2 // seleção de volta
 }
@@ -17,11 +16,12 @@ struct ColetarData: View {
     @State public var dataVOLTASelecionada = Date()
     @State public var textoIDA: String = ""
     @State public var textoVolta: String = ""
-   
     
     //@State public var textoIDA: String = ""
     @State public var estadoAtual: Status = .estado1
-  //  @Binding var modificarBool: Bool
+   //  @Binding var modificarBool: Bool
+    
+    @Binding var estaApresentado: Bool
   
     var body: some View{
         
@@ -156,8 +156,10 @@ struct ColetarData: View {
             case .estado2:
                 print(dataIDASelecionada)
                 print(dataVOLTASelecionada)
-            
                 
+                withAnimation {
+                    estaApresentado = false
+                }
             }
         }
 }
@@ -166,8 +168,8 @@ struct ColetarData: View {
 
 
 #Preview{
-     
-    ColetarData()
+    @Previewable @State var mostrar = true
+    ColetarData(estaApresentado: $mostrar)
 }
 
 
