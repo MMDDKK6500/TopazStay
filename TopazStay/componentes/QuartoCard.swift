@@ -25,6 +25,7 @@ struct QuartoCard: View {
         VStack(spacing: 0) {
             if !estaExpandido {
                 // --- FORMATO NORMAL (Seu código original) ---
+                //ué da onde veio isso?
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .foregroundStyle(Color.white)
