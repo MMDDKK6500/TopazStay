@@ -13,6 +13,7 @@ struct PopupQuarto: View {
     @State private var quantidade = 1
     @Binding var menuInferiorMostrar: Bool
     
+    @EnvironmentObject var dados: ObservableDados
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -62,6 +63,7 @@ struct PopupQuarto: View {
                 Button(action: { withAnimation {
                     menuInferiorMostrar = true
                     mostrar = false
+                    dados.escolhaQuartos.append(EscolhaQuarto(quarto: quarto, quantidade: quantidade))
                 } }) {
                     Text("Adicionar a reserva")
                         .font(Font.custom("Poppins-Medium", size: 16))

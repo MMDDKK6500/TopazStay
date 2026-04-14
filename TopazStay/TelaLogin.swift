@@ -9,6 +9,8 @@ import SwiftUI
 
 struct TelaLogin: View {
     
+    @StateObject var dados = ObservableDados()
+    
     @State private var email: String = ""
     @State private var senha: String = ""
     var aoLogar: () -> Void
@@ -89,6 +91,7 @@ struct TelaLogin: View {
                 }
             }
         }
+        .environmentObject(dados)
     }
 }
 

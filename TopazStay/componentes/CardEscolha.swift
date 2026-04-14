@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct CardEscolha: View {
-    @State public var quantidade: Int = 1
-    var quarto: Quarto
+    var escolhaQuarto: EscolhaQuarto
+    
+    @EnvironmentObject var dados: ObservableDados
     
     var body: some View {
         
@@ -21,7 +22,7 @@ struct CardEscolha: View {
             .cornerRadius(5)
             .padding(.top, 10)
         ZStack{
-            Text(quarto.nome)
+            Text(escolhaQuarto.quarto.nome)
                 .font(
                     Font.custom("Rounded Mplus 1c", size: 20)
                         .weight(.heavy)
@@ -31,7 +32,7 @@ struct CardEscolha: View {
                 .padding(.top, -230)
                 .padding(.leading, -60)
             
-            Text("R$ \(String(format: "%.2f", quarto.valor))") // preço variável
+            Text("R$ \(String(format: "%.2f", escolhaQuarto.quarto.valor))") // preço variável
                 .font(
                     Font.custom("Poppins-Medium", size: 20)
                 )
@@ -41,7 +42,7 @@ struct CardEscolha: View {
                 .padding(.leading, -60)
             
             Button(action: {
-                if  quantidade >= 1 { quantidade -= 1}
+                if  escolhaQuarto.quantidade >= 1 { escolhaQuarto.quantidade -= 1}
                 print("Botao subtrair clicado")}){
                 Rectangle()
                     .foregroundColor(.clear)
@@ -61,7 +62,7 @@ struct CardEscolha: View {
                 .padding(.top, -220)
                 .padding(.leading, 323)
             Button(action: {
-                quantidade += 1
+                escolhaQuarto.quantidade += 1
                 print("Botao somar clicado")}){
                 Rectangle()
                     .foregroundColor(.clear)
@@ -88,7 +89,7 @@ struct CardEscolha: View {
               .cornerRadius(10)
               .padding(.top, -220)
               .padding(.leading, 180)
-            Text(String(quantidade))
+            Text(String(escolhaQuarto.quantidade))
                 .font(
                     Font.custom("Poppins", size: 24)
                         .weight(.heavy)
@@ -153,7 +154,9 @@ struct CardEscolha: View {
                   .frame(width: 336, height: 22, alignment: .topLeading)
                   .padding(.top, -100)
                   .padding(.leading, 140)
-                Button(action: { print("Botao remover clicado")}){
+                Button(action: {
+                    dados.escolhaQuartos.removeAll(where: { $0.quarto.id == self.escolhaQuarto.quarto.id })
+                }){
                     Text("Remover")
                         .font(Font.custom("Poppins", size: 13))
                         .foregroundColor(Color.laranjaEscuroEstrela)
@@ -167,5 +170,5 @@ struct CardEscolha: View {
     }
 }
 #Preview {
-    CardEscolha(quarto: hoteis.first!.quartos.first!)
+    CardEscolha(escolhaQuarto: EscolhaQuarto(quarto: hoteis[0].quartos[0], quantidade: 1))
 }

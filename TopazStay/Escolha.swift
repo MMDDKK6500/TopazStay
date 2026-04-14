@@ -9,9 +9,11 @@ import SwiftUI
 
 struct Escolha: View {
    // @State private var showSheet: Bool = false
+    
+    @EnvironmentObject var dados: ObservableDados
+    
     @State private var offset:CGFloat = 60
     @State private var lastOffset: CGFloat = 0
-    var quartos: [Quarto]
    // var soma: Double = 0
     
   
@@ -43,7 +45,7 @@ struct Escolha: View {
                               .padding(.top, 15)
                               .padding(.leading, -90)
                             
-                            Text("R$ \(String(format: "%.2f", somaDosQuartos(quartos: quartos)))") // preço variável
+                            Text("R$ \(String(format: "%.2f", somaDosQuartos(quartos: dados.escolhaQuartos)))") // preço variável
                               .font(
                                 Font.custom("Poppins", size: 20)
                                   .weight(.medium)
@@ -64,8 +66,8 @@ struct Escolha: View {
                                 
                                 ScrollView(.vertical){
                                     VStack(spacing: -10){ // espaçamento
-                                        ForEach(quartos) { quarto in
-                                            CardEscolha(quarto: quarto)
+                                        ForEach(dados.escolhaQuartos) { escolhaQuarto in
+                                            CardEscolha(escolhaQuarto: escolhaQuarto)
                                             }
                                         }
                                     //somaDosQuartos += quarto.valor
@@ -142,7 +144,7 @@ struct Escolha: View {
 
 
 #Preview {
-    Escolha(quartos: hoteis[0].quartos)
+    Escolha()
     
     
     

@@ -8,11 +8,10 @@
 import Foundation
 
 
-func somaDosQuartos(quartos: [Quarto]) -> Double
-{
+func somaDosQuartos(quartos: [EscolhaQuarto]) -> Double {
     var soma: Double = 0
     for quarto in quartos {
-        soma += quarto.valor
+        soma += (quarto.quarto.valor * Double(quarto.quantidade))
     }
     return soma
 }
