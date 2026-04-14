@@ -9,9 +9,26 @@ import SwiftUI
 
 @main
 struct TopazStayApp: App {
+    @State private var telaAtual: String = "splash"
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                if telaAtual == "splash" {
+                    TelaInicial(aoAvancar: {
+                        telaAtual = "login"
+                    })
+                    .transition(.opacity)
+                } else if telaAtual == "login" {
+                    TelaLogin(aoLogar: {
+                        withAnimation { telaAtual = "home" }
+                    })
+                    .transition(.opacity)
+                } else {
+                    ContentView()
+                        .transition(.opacity)
+                }
+            }
         }
     }
 }

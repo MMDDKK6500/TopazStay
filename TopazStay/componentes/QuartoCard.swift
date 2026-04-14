@@ -102,7 +102,7 @@ struct QuartoCard: View {
                                     .foregroundColor(.black)
                                 
                                 Text("R$ " + String(format: "%.2f", quarto.valor))
-                                    .font(Font.custom("Poppins-Medium", size: 18))
+                                    .font(Font.custom("Poppins-Medium", size: 20))
                                     .foregroundColor(.black)
                             }
                             
@@ -123,7 +123,7 @@ struct QuartoCard: View {
                         // Descrição completa
                         Text(quarto.descricao)
                             .font(Font.custom("Poppins-Regular", size: 14))
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.cinzaTexto)
                             .lineLimit(nil)
                     }
                     .padding(20)

@@ -10,31 +10,31 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        NavigationStack {
-            TabView {
-                Tab("Explorar", systemImage: "sparkles") {
-                    TelaExplorar(hoteis: hoteis)
-                }
-                
-                Tab("Reservas", systemImage: "calendar") {
-                    TelaReservas(pesquisa: "", reservas: reservas)
-                }
-                
-                Tab("Favoritos", systemImage: "heart.fill") {
-                    Text("Tela de Favoritos")
-                }
-                
-                Tab("Perfil", systemImage: "person") {
-                    Text("Tela de Perfil")
-                }
+       
+    TabView {
+            Tab("Explorar", systemImage: "sparkles") {
+                TelaExplorar(hoteis: hoteis)
             }
-            .tint(Color.accentColor)
             
-            // 2. Estilização da Barra (Fundo e Visibilidade)
-            .toolbarBackground(.white, for: .tabBar)
-            .toolbarBackground(.visible, for: .tabBar)
+            Tab("Reservas", systemImage: "calendar") {
+                TelaReservas(pesquisa: "", reservas: reservas)
+            }
+            
+            Tab("Favoritos", systemImage: "heart.fill") {
+                TelaFavoritos(hoteis: hoteis)
+            }
+            
+            Tab("Perfil", systemImage: "person") {
+                //TelaPerfil(hoteis: hoteis)
+            }
         }
+        .tint(Color.accentColor)
+        
+        // 2. Estilização da Barra (Fundo e Visibilidade)
+        .toolbarBackground(.white, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
     }
+    
 }
 
 #Preview {
