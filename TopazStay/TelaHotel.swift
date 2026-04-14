@@ -120,6 +120,10 @@ struct TelaHotel: View {
             .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
             .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoque
             
+            Escolha()
+            .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
+            .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoqu
+            
             // --- CAMADA DO POPUP ---
             if mostrarPopup, let quarto = quartoParaPopup {
                 // Fundo escurecido

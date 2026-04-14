@@ -57,9 +57,7 @@ struct PopupQuarto: View {
                 }
                 
                 // Botão de ação
-                NavigationLink {
-                    TelaConfirmacao()
-                } label: {
+                Button(action: { withAnimation { mostrar = false } }) {
                     Text("Adicionar a reserva")
                         .font(Font.custom("Poppins-Medium", size: 16))
                         .foregroundColor(.white)
