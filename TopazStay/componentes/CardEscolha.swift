@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardEscolha: View {
-    var escolhaQuarto: EscolhaQuarto
+    @State var escolhaQuarto: EscolhaQuarto
     
     @EnvironmentObject var dados: ObservableDados
     
@@ -42,7 +42,9 @@ struct CardEscolha: View {
                 .padding(.leading, -60)
             
             Button(action: {
-                if  escolhaQuarto.quantidade >= 1 { escolhaQuarto.quantidade -= 1}
+                if escolhaQuarto.quantidade >= 1 {
+                    escolhaQuarto.quantidade -= 1
+                }
                 print("Botao subtrair clicado")}){
                 Rectangle()
                     .foregroundColor(.clear)
@@ -170,5 +172,5 @@ struct CardEscolha: View {
     }
 }
 #Preview {
-    CardEscolha(escolhaQuarto: EscolhaQuarto(quarto: hoteis[0].quartos[0], quantidade: 1))
+    CardEscolha(escolhaQuarto: EscolhaQuarto(quarto: hoteis[0].quartos[0], quantidade: 2))
 }
