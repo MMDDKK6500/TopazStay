@@ -57,15 +57,18 @@ struct PopupQuarto: View {
                 }
                 
                 // Botão de ação
-                Button(action: { withAnimation { mostrar = false } }) {
+                NavigationLink {
+                    TelaConfirmacao()
+                } label: {
                     Text("Adicionar a reserva")
-                        .font(Font.custom("Poppins-Bold", size: 16))
+                        .font(Font.custom("Poppins-Medium", size: 16))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color(red: 0.0, green: 0.5, blue: 0.6))
                         .cornerRadius(12)
                 }
+                    
             }
             .padding(20)
         }
@@ -85,4 +88,12 @@ struct PopupIconRow: View {
             Text(text).font(Font.custom("Poppins-Regular", size: 14))
         }.foregroundColor(.secondary)
     }
+}
+
+
+#Preview {
+    
+    @Previewable @State var mostrar = true
+    
+    PopupQuarto(quarto: hoteis[0].quartos[0], mostrar: $mostrar)
 }
