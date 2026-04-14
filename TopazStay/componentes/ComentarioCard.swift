@@ -75,10 +75,5 @@ struct ComentarioCard: View {
 }
 
 #Preview {
-    ComentarioCard(comentario: Comentario(
-        foto: "logo",
-        nome: "Mario",
-        avaliacao: 4,
-        texto: "bão de msdsadsadsasadsadsadsadasdsadsadsadsadsadasdsadsadsadasdais"
-    ))
+    ComentarioCard(comentario: hoteis[0].comentarios[0])
 }

@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CardEscolha: View {
-    @State private var nomeHotel: String = ""
-    @State public var preco: Double = 350.00
     @State public var quantidade: Int = 1
     var quarto: Quarto
     
@@ -33,10 +31,9 @@ struct CardEscolha: View {
                 .padding(.top, -230)
                 .padding(.leading, -60)
             
-            Text("\(String(format: "%.2f", preco))") // preço variável
+            Text("R$ \(String(format: "%.2f", quarto.valor))") // preço variável
                 .font(
-                    Font.custom("Poppins", size: 20)
-                        .weight(.heavy)
+                    Font.custom("Poppins-Medium", size: 20)
                 )
                 .foregroundColor(.black)
                 .frame(width: 218, height: 30, alignment: .topLeading)

@@ -29,8 +29,6 @@ struct Escolha: View {
                     ZStack(alignment: .bottom) {
                        
                         VStack {
-                         
-                                 
                             Capsule()
                                 .frame(width: 85, height: 6)
                                 .foregroundColor(.white)
@@ -45,7 +43,7 @@ struct Escolha: View {
                               .padding(.top, 15)
                               .padding(.leading, -90)
                             
-                            Text("R$ \(String(somaDosQuartos(quartos: quartos)))") // preço variável
+                            Text("R$ \(String(format: "%.2f", somaDosQuartos(quartos: quartos)))") // preço variável
                               .font(
                                 Font.custom("Poppins", size: 20)
                                   .weight(.medium)

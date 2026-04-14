@@ -29,7 +29,7 @@ struct TelaExplorar: View {
                     
                 MenuSuperior(textoPesquisa: $textoPesquisa)
                 
-                Text(" Verifique nossas opções de hotéis")
+                Text("Verifique nossas opções de hotéis")
                     .font(.custom("Poppins-Regular", size: 18))
                     .foregroundColor(.cinzaTexto)
                     .opacity(0.8)

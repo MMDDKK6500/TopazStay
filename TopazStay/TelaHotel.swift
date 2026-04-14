@@ -122,7 +122,7 @@ struct TelaHotel: View {
             .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoque
             
             if(menuInferior == true){
-                    Escolha(quartos: hoteis[0].quartos)
+                    Escolha(quartos: hotel.quartos)
                     .disabled(mostrarPopup) // Desativa o scroll quando o popup está aberto
                     .blur(radius: mostrarPopup ? 3 : 0) // Efeito visual opcional de desfoqu
             }

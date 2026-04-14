@@ -15,7 +15,7 @@ struct HotelCard: View {
             Rectangle()
                 .foregroundStyle(Color.white)
                 .containerRelativeFrame(.vertical) { size, axis in
-                    size * 0.3
+                    size * 0.32
                 }
                 .cornerRadius(12)
                 .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
@@ -27,7 +27,7 @@ struct HotelCard: View {
                             .scaledToFill()
                             .clipped()
                             .containerRelativeFrame(.vertical) { size, axis in
-                                size * 0.3
+                                size * 0.32
                             }
                             .containerRelativeFrame(.horizontal) { size, axis in
                                 size * 0.35
