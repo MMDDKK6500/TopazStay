@@ -120,15 +120,22 @@ struct TelaConfirmacao: View {
               .padding(.leading, 0)
             
             
-            Button(action: { print("Botao hotel clicado")}){
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 123, height: 43)
-                    .background(Color.menuInferiorSuperior)
-                    .cornerRadius(5)
-            }
-                    .padding(.top,500)
-                    .padding(.leading, -140)
+           
+        
+                NavigationLink {
+                    PagamentoReserva()
+                } label: {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                        .frame(width: 123, height: 43)
+                        .background(Color.menuInferiorSuperior)
+                        .cornerRadius(5)
+                        .padding(.top,500)
+                        .padding(.leading, -140)
+                }
+              
+            
+                    
                 
                 Text("Hotel")
                     .font(
@@ -142,15 +149,17 @@ struct TelaConfirmacao: View {
                     .padding(.leading, -110)
             
             
-            Button(action: { print("Botao app clicado")}){
+            NavigationLink {
+                PagamentoApp()
+            } label: {
                 Rectangle()
                     .foregroundColor(.clear)
                     .frame(width: 123, height: 43)
                     .background(Color.menuInferiorSuperior)
                     .cornerRadius(5)
-            }
                     .padding(.top,500)
                     .padding(.leading, 140)
+            }
                 
                 Text("Aplicativo")
                     .font(
@@ -163,6 +172,8 @@ struct TelaConfirmacao: View {
                     .padding(.top,500)
                     .padding(.leading, 135)
             
+            
+           
             
         }
         .frame(width: 493, height: 852)

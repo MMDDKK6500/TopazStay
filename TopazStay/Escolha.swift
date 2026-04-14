@@ -11,7 +11,10 @@ struct Escolha: View {
    // @State private var showSheet: Bool = false
     @State private var offset:CGFloat = 60
     @State private var lastOffset: CGFloat = 0
+    var quartos: [Quarto]
+   // var soma: Double = 0
     
+  
    
     
     var body: some View {
@@ -20,7 +23,7 @@ struct Escolha: View {
                     
                     let screenHeight = geometry.size.height
                     let minHeight = screenHeight / 6
-            let maxHeight = screenHeight / 1.4
+                    let maxHeight = screenHeight / 1.4
                     
                 
                     ZStack(alignment: .bottom) {
@@ -42,7 +45,7 @@ struct Escolha: View {
                               .padding(.top, 15)
                               .padding(.leading, -90)
                             
-                            Text("R$ 1550,00") // preço variável
+                            Text("R$ \(String(somaDosQuartos(quartos: quartos)))") // preço variável
                               .font(
                                 Font.custom("Poppins", size: 20)
                                   .weight(.medium)
@@ -63,22 +66,19 @@ struct Escolha: View {
                                 
                                 ScrollView(.vertical){
                                     VStack(spacing: -10){ // espaçamento
-                                        ForEach(0..<3){ // quantidade de quartos variável
-                                            card in CardEscolha(quarto: Quarto(
-                                                nome: "Padrão",
-                                                descricao: "Descrição genial",
-                                                maxPessoas: 2,
-                                                valor: 350,
-                                                imagem: "imagens/quartos/8"
-                                            ))
+                                        ForEach(quartos) { quarto in
+                                            CardEscolha(quarto: quarto)
+                                            }
                                         }
-                                    }
+                                    //somaDosQuartos += quarto.valor
                                     
                                 }
                                 .padding(.top, 40)
                                 .frame(width: 350, height: 421)
                             }
-                            Button(action: { print("Botao confirmar clicado ")}){
+                            NavigationLink {
+                                TelaConfirmacao()
+                            } label: {
                                 Rectangle()
                                     .frame(width: 183, height: 36)
                                     .foregroundColor(Color.botaoFiltros)
@@ -141,8 +141,11 @@ struct Escolha: View {
     }//.safeAreaInset(edge: .bottom)
 }
 
+
+
 #Preview {
-    Escolha()
+    Escolha(quartos: hoteis[0].quartos)
+    
     
     
     /*  @Previewable let hotel: Hotel = Hotel(

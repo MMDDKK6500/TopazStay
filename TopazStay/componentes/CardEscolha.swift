@@ -9,13 +9,13 @@ import SwiftUI
 
 struct CardEscolha: View {
     @State private var nomeHotel: String = ""
-    @State private var preco: Double = 350.00
-    @State private var quantidade: Int = 1
+    @State public var preco: Double = 350.00
+    @State public var quantidade: Int = 1
     var quarto: Quarto
     
     var body: some View {
         
-        
+       
         Rectangle()
             .foregroundColor(.clear)
             .frame(width: 320, height: 227)
