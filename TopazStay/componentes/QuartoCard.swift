@@ -19,8 +19,6 @@ struct QuartoCard: View {
     var body: some View {
         VStack(spacing: 0) {
             if !estaExpandido {
-                // --- FORMATO NORMAL (Seu código original) ---
-                //ué da onde veio isso?
                 ZStack(alignment: .leading) {
                     Rectangle()
                         .foregroundStyle(Color.white)
@@ -71,7 +69,7 @@ struct QuartoCard: View {
                     }
                 }
             } else {
-                // --- FORMATO ESTENDIDO (Novo design com botão e descrição) ---
+                //  FORMATO ESTENDIDO 
                 VStack(alignment: .leading, spacing: 0) {
                     // Imagem no topo ocupando a largura total
                     Image(quarto.imagem)

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TelaInicial: View {
-    var aoAvancar: () -> Void // Adicione isso aqui
+    var aoAvancar: () -> Void 
     var body: some View {
         ZStack {
             //Fundo em gradiente
@@ -34,7 +34,7 @@ struct TelaInicial: View {
         
                 Spacer()
                 
-                // --- LÓGICA DE TRANSIÇÃO POR TEMPO ---
+                // LÓGICA DE TRANSIÇÃO POR TEMPO
                 .onAppear {
                     // Aguarda 2 segundos e executa a troca
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
