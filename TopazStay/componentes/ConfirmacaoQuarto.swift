@@ -35,13 +35,13 @@ struct ConfirmacaoQuarto: View {
                   .padding(.top, 5)
                   .padding(.leading, 0)
                 
-                Text("Valor do quarto R$ \(String(format: "%.2f", escolhaQuarto.quarto.valor)) ") // preço
+                Text("Valor do quarto R$ \(String(format: "%.2f", escolhaQuarto.quarto.valor)) ") // preço ajustado
                   .font(Font.custom("Poppins", size: 15))
                   .foregroundColor(Color.cinzaTexto)
                   .frame(width: 276, alignment: .topLeading)
                   .padding(.top, -15)
                 
-                Text("x\(String(escolhaQuarto.quantidade))") // quantidade
+                Text("x\(String(escolhaQuarto.quantidade))") // quantidade de quartos
                   .font(Font.custom("Poppins", size: 15))
                   .foregroundColor(Color.cinzaTexto)
                   .frame(width: 13, alignment: .topLeading)

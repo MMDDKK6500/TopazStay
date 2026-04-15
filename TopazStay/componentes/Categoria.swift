@@ -11,7 +11,7 @@ import SwiftUI
 
 
 struct Categoria: View {
-    let categoriaHotel = ["Apartamento", "Chalé", "Hotel", "Hotel-Fazenda", "Pousada", "Resort"] // Adicione aqui os elementos
+    let categoriaHotel = ["Apartamento", "Chalé", "Hotel", "Hotel-Fazenda", "Pousada", "Resort"] // Aqui são adicionados os elemntos.
     @Binding var estaApresentado: Bool
     
     var body: some View {
@@ -37,7 +37,7 @@ struct Categoria: View {
             
             ScrollView(.vertical){
                 VStack{
-                    ForEach(categoriaHotel, id: \.self){ categoriaHotel in
+                    ForEach(categoriaHotel, id: \.self){ categoriaHotel in // para cada item na categoriaHotel, adicionará um botão (objeto) com o nome listado
                         Button(action: {
                             print("Botao \(categoriaHotel) clicado ")
                             withAnimation {

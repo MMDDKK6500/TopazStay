@@ -17,9 +17,7 @@ struct ColetarData: View {
     @State public var textoIDA: String = ""
     @State public var textoVolta: String = ""
     
-    //@State public var textoIDA: String = ""
     @State public var estadoAtual: Status = .estado1
-   //  @Binding var modificarBool: Bool
     
     @Binding var estaApresentado: Bool
   
@@ -75,10 +73,9 @@ struct ColetarData: View {
                 .cornerRadius(10)
                 .padding(.top, 60)
             
-            //Botao Confirmar
             
             Button(action: {
-              alternarEstado() // alternar para  a segunda data
+              alternarEstado() // alternar para  a segunda escolha de data
             })
             {
                 Rectangle()
@@ -109,9 +106,10 @@ struct ColetarData: View {
             
             // CALENDARIO
             ZStack{
-            
+            // este calendário possui 2 estados de escolha, a ida , e a volta.
+                
                 switch estadoAtual {
-                        case .estado1:
+                        case .estado1: // ida
                     DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
                     
                         .datePickerStyle(.graphical)
@@ -121,7 +119,7 @@ struct ColetarData: View {
                             Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
                                 .padding(.top, -165)
                                 .padding(.leading, -150)
-                        case .estado2:
+                        case .estado2: // volta
                     DatePicker("Escolha uma data", selection: $dataVOLTASelecionada, displayedComponents: [.date])
                         
                         .datePickerStyle(.graphical)
@@ -152,13 +150,13 @@ struct ColetarData: View {
             switch estadoAtual {
             case .estado1:
                 estadoAtual = .estado2
-                print("Fui para o Estado 2")
+                print("Ir para o Estado 2") // mensagem debug
             case .estado2:
                 print(dataIDASelecionada)
                 print(dataVOLTASelecionada)
                 
                 withAnimation {
-                    estaApresentado = false
+                    estaApresentado = false // sair da tela
                 }
             }
         }
@@ -169,7 +167,7 @@ struct ColetarData: View {
 
 #Preview{
     @Previewable @State var mostrar = true
-    ColetarData(estaApresentado: $mostrar)
+    ColetarData(estaApresentado: $mostrar) // variável binding
 }
 
 

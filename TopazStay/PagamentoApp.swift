@@ -60,8 +60,8 @@ struct PagamentoApp: View {
                                 .padding(.horizontal, 0)
                             
                             
-                            //Valor Total
-                            //  let valorFormatado = String(format: "%.2f", valorTotal)
+                          
+                           //String(format: "%.2f", valorTotal) = conversão de doubles
                             Text("Valor total: R$\(String(format: "%.2f", somaDosQuartos(quartos: dados.escolhaQuartos)))")
                                 .font(
                                     Font.custom("Poppin", size: 20)
@@ -86,7 +86,7 @@ struct PagamentoApp: View {
                             
                             //Botão Apple pay
                             Button(action: {
-                                mostrarPopupSucesso = true
+                                mostrarPopupSucesso = true // mostrar popup de reserva confirmada
                                 print("Botao Apple pay clicado")}){
                                 Rectangle()
                                     .foregroundColor(.clear)
@@ -113,7 +113,7 @@ struct PagamentoApp: View {
                             //Botão cartao de credito
                             Button(action: {
                                 withAnimation {
-                                    mostrarPopupCC = true
+                                    mostrarPopupCC = true // mostrar popup de cartão
                                 }
                             }){
                                 Rectangle()
@@ -145,7 +145,7 @@ struct PagamentoApp: View {
                             
                             Button(action: {
                                 withAnimation {
-                                    mostrarPopupPix = true
+                                    mostrarPopupPix = true // mostrar popup de confirmação de reserva
                                 }
                             }){
                                 Rectangle()
@@ -165,7 +165,6 @@ struct PagamentoApp: View {
                                         .weight(.heavy)
                                 )
                                 .multilineTextAlignment(.center)
-                            // .minimumScaleFactor(2)
                                 .foregroundColor(.white)
                                 .frame(width: 170, height: 15, alignment: .center)
                                 .padding(.top, -35)

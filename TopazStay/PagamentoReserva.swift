@@ -53,13 +53,11 @@ struct PagamentoReserva: View {
                             .multilineTextAlignment(.center)
                             .foregroundColor(.black)
                             .minimumScaleFactor(0.4)
-                        //.maximumScaleFactor(1.0)
                             .padding(.top,-260)
                             .padding(.horizontal, 0)
                         
                         
-                        //Valor Total
-                        //  let valorFormatado = String(format: "%.2f", valorTotal)
+                        //String(format: "%.2f", valorTotal)  conversão do double
                         Text("Valor total: R$\(String(format: "%.2f", somaDosQuartos(quartos: dados.escolhaQuartos)))")
                             .font(
                                 Font.custom("Poppin", size: 20)
@@ -135,39 +133,7 @@ struct PagamentoReserva: View {
                             .frame(width: 200, height: 15, alignment: .center)
                             .padding(.top, -35)
                             .padding(.leading, 0)
-                        
-                        
-                        
-                        
-                        //Botão PIX
-                        /*
-                         Button(action: { print("Botao Pix clicado")}){
-                         Rectangle()
-                         .foregroundColor(.clear)
-                         .frame(width: 198, height: 43)
-                         .background(Color(red: 0, green: 0.65, blue: 0.76))
-                         .cornerRadius(5)
-                         .shadow(color: .black.opacity(0.50), radius: 2, x: 0, y: 3)
-                         }
-                         .padding(.top, 5)
-                         .padding(.leading, 0)
                          
-                         
-                         Text("PIX")
-                         .font(
-                         Font.custom("Poppins", size: 20)
-                         .weight(.heavy)
-                         )
-                         .multilineTextAlignment(.center)
-                         // .minimumScaleFactor(2)
-                         .foregroundColor(.white)
-                         .frame(width: 170, height: 15, alignment: .center)
-                         .padding(.top, -35)
-                         .padding(.leading, 0)*/
-                        
-                        
-                        
-                        
                     }
                     VStack{
                         
@@ -187,20 +153,20 @@ struct PagamentoReserva: View {
                     
                 }
             }
-            // Aplica um leve desfoque no fundo quando o popup está aberto
+            // Desfoque no fundo quando o popup está aberto
             .blur(radius: mostrarPopup ? 3 : 0)
-            .disabled(mostrarPopup) // Impede cliques no fundo enquanto o popup estiver aberto
+            .disabled(mostrarPopup) // desativa cliques no fundo enquanto o popup estiver aberto
             
             // --- CAMADA 2: O POPUP ---
             if mostrarPopup {
-                // Fundo escurecido atrás do popup
+                // fundo escurecido atrás do popup
                 Color.black.opacity(0.4)
                     .ignoresSafeArea()
                     .onTapGesture {
                         withAnimation { mostrarPopup = false }
                     }
                 
-                // O Componente do Popup
+               //mostrar popup cartão
                 PopupCartao(mostrar: $mostrarPopup)
                     .transition(.scale(scale: 0.9).combined(with: .opacity))
                     .zIndex(1) // Garante que fique no topo
@@ -211,7 +177,7 @@ struct PagamentoReserva: View {
                     .onTapGesture {
                         withAnimation { mostrarPopupSucesso = false }
                     }
-                
+                // mostrar popup de reserva confirmada
                 ReservaConfirmada( mostrarPopupSucesso: $mostrarPopupSucesso)
                     .transition(.asymmetric(
                         insertion: .opacity.combined(with: .scale(scale: 0.95)),

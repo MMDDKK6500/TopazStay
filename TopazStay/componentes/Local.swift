@@ -34,7 +34,7 @@ struct Local: View {
              
              ScrollView(.vertical){
                  VStack{
-                     ForEach(localHotel, id: \.self){ localHotel in
+                     ForEach(localHotel, id: \.self){ localHotel in // para cada elemento criado no localHotel, adicionar um card selecionável com o respectivo nome
                          Button(action: {
                              print("Botao \(localHotel) clicado ")
                              withAnimation {
@@ -56,12 +56,8 @@ struct Local: View {
                                .frame(width: 150, height: 19, alignment: .center)
                                .padding(.top, -40)
                          }
-                       
-                          // .padding(.top, 30)
-                         
-                       
-                            
-                         
+                        
+                          
                      }
                  }
                  .scrollTargetLayout()
