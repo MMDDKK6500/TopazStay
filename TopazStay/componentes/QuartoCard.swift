@@ -4,16 +4,11 @@
 //
 //  Created by JOAO DUQUE NARDELLI WANDERMUREN on 09/04/26.
 //
-
-//
-//  QuartoCard.swift
-//  TopazStay
-//
-//  Created by JOAO DUQUE NARDELLI WANDERMUREN on 09/04/26.
-//
+//  Edited by AGATHA
 
 import SwiftUI
 
+// Componente de um quarto, com a expansão do card feito pela Agatha
 struct QuartoCard: View {
     
     @State var quarto: Quarto

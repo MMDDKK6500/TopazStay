@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// Popup de pagamento via pix, que leva devolta para a tela de reservas
 struct PopupPix: View {
     
     @Binding var mostrar: Bool

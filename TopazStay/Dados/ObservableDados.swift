@@ -9,6 +9,7 @@ import Foundation
 internal import Combine
 import SwiftUI
 
+// Classe com dados temporários do app
 class ObservableDados: ObservableObject {
     @Published var escolhaQuartos: [EscolhaQuarto] = []
 }

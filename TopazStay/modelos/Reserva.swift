@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// Modelo de reserva, com o hotel, quartos, e datas
 struct Reserva: Identifiable {
     var id = UUID()
     var hotel: Hotel

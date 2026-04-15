@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+// Componente para um comentário no hotel
 struct ComentarioCard: View {
     
     var comentario: Comentario
@@ -64,6 +66,7 @@ struct ComentarioCard: View {
             }
             .padding(.top, 0)
             .padding(.bottom, 5)
+            //linha
             Rectangle()
                 .foregroundStyle(.black.opacity(0.5))
                 .frame(height: 1)

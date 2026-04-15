@@ -211,5 +211,6 @@ struct PagamentoApp: View {
                 }
             }
         }
+        .frame(width: 493, height: 852)
     }
 }

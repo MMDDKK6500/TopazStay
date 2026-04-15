@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Pop up de de adicionar cartão
 struct PopupAddCartao: View {
     
     @State var nome: String = ""

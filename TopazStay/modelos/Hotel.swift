@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Modelo de um hotel, com nome, local, menor preço, etc.
 struct Hotel: Identifiable {
     
     var id = UUID()

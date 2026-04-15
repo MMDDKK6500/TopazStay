@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//Modelo para a escolha de um quarto, com quantidade
 class EscolhaQuarto: Identifiable {
     var id = UUID()
     var quarto: Quarto

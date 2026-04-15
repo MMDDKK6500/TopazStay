@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Main do app, com a navegação da splash, login e view principal
 @main
 struct TopazStayApp: App {
     @State private var telaAtual: String = "splash"

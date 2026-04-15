@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Modelo de quarto, com nome, descrição, max de pessoas, etc.
 struct Quarto: Identifiable {
     var id = UUID()
     var nome: String

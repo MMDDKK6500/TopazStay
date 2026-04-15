@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Modelo de um comentário
 struct Comentario: Identifiable {
     var id = UUID()
     var foto: String

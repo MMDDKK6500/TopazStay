@@ -7,6 +7,7 @@
 
 import Foundation
 
+// dados exemplo, agindo como banco de dados
 var hoteis: [Hotel] = [
     Hotel(
         nome: "Hotel Palace",

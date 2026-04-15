@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Tela com informações do hotel e opções de reserva
 struct TelaHotel: View {
     
     var hotel: Hotel;

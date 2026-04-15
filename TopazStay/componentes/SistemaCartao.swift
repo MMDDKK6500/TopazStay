@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+//Sisteminha para esoclher apenas um cartão, feito antes de descobrir sobre toggle, picker e switches
 struct SistemaCartao: View {
     
     @State private var card1Selected: Bool = false

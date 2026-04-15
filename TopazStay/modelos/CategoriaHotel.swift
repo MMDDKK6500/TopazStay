@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Categoria de hoteis
 enum CategoriaHotel: String {
     case apartamento = "Apartamento"
     case chale = "Chalé"

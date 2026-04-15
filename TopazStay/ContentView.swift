@@ -14,7 +14,7 @@ enum Tabs: Equatable, Hashable{
     case perfil
 }
 
-
+// View principal, com o tabview
 struct ContentView: View {
     
     @State var selectTab: Tabs = .explorar

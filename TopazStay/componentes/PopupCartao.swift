@@ -3,10 +3,13 @@
 //  TopazStay
 //
 //  Created by JOAO DUQUE NARDELLI WANDERMUREN on 08/04/26.
+//  Editer by AGATHA
 //
 
 import SwiftUI
 
+
+// Pop up de cartões
 struct PopupCartao: View {
     
     @State var cardSelected = false
@@ -17,6 +20,7 @@ struct PopupCartao: View {
 
     @State private var path = ContentView(selectTab: .reservas)
     var body: some View {
+        // parte da agatha
         Group {
             if mostrarPopupAddCartao {
                 // --- TELA 2: CADASTRO DE CARTÃO ---
@@ -34,6 +38,7 @@ struct PopupCartao: View {
             }
             else {
                 // --- TELA 1: ESCOLHA DO CARTÃO ---
+                // parte do duque
                 VStack {
                     Text("Escolha um cartão para continuar")
                         .font(Font.custom("Poppins-Regular", size: 15))
@@ -50,14 +55,15 @@ struct PopupCartao: View {
                         Text("+ Adicionar um cartão")
                             .foregroundStyle(Color.cinzaTexto)
                             .font(Font.custom("Poppins-Medium", size: 15))
-                            .padding(15)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
                             .background(
                                 RoundedRectangle(cornerRadius: 5)
                                     .fill(.white)
                                     .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
                             )
                     }
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                     .padding(.bottom, 5)
                     
                     HStack {

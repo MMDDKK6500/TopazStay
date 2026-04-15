@@ -12,6 +12,8 @@ enum selected: String, CaseIterable, Identifiable {
     var id: Self { self }
 }
 
+
+//Tela de reservas
 struct TelaReservas: View {
     
     @State var pesquisa: String = ""

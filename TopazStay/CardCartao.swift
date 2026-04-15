@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Componente com o cartão, utilizado em popup cartão
 struct CardCartao: View {
     
     @Binding var isSelected: Bool

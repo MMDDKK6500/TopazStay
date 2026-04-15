@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Tela que indica ao usuário que a reserva foi feita
 struct ReservaConfirmada: View {
     
     @Binding var mostrarPopupSucesso: Bool
