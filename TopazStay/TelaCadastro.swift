@@ -32,9 +32,7 @@ struct TelaCadastro: View {
                     Button(action: {
                         // Ação para voltar de tela
                         }) {
-                            Image(systemName: "chevron.left")
-                                .font(.system(size: 25, weight: .bold))
-                                .foregroundColor(.cinzaTexto.opacity(0.6))
+                            
                         }
                     
                     // campo de confirmação de senha
@@ -45,6 +43,7 @@ struct TelaCadastro: View {
                         )
                         .multilineTextAlignment(.center)
                         .foregroundColor(.cinzaTexto.opacity(0.6))
+                        .padding(.leading, 20)
                     
                     Spacer()
                 }

@@ -65,7 +65,7 @@ struct PopupAddCartao: View {
             HStack {
                 Button(action: {
                     withAnimation {
-                        mostrar = false
+                        mostrar = false // esconde a janela
                     }
                 }) {
                     Text("Cancelar")
@@ -79,7 +79,11 @@ struct PopupAddCartao: View {
                         )
                 }
                 Spacer()
-                Button(action: doSomething) {
+                Button(action: {
+                    withAnimation {
+                        mostrar = false // esconde a janela
+                    }
+                }) {
                     Text("Cadastrar")
                         .foregroundStyle(Color.white)
                         .font(Font.custom("Poppins-Medium", size: 15))

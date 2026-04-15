@@ -80,8 +80,13 @@ struct TelaLogin: View {
                         HStack {
                             Text("Não tem uma conta?")
                                 .font(Font.custom("Poppins-Regular", size: 15))
-                            Text("Cadastre-se!")
-                                .font(Font.custom("Poppins-Medium", size: 15)) //é pra ser bold
+                            NavigationLink{
+                                TelaCadastro()
+                                    .navigationBarBackButtonHidden(false)
+                            }label:{
+                                Text("Cadastre-se!")
+                                    .font(Font.custom("Poppins-Medium", size: 15)) //é pra ser bold
+                            }
                         }
                         .foregroundColor(.cinzaTexto)
                     }
