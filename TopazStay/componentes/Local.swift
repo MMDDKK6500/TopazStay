@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct Local: View {
-    let localHotel = ["Curitiba", "Distrito Federal", "Minas Gerais", "Rio de Janeiro", "São Paulo"]
-    @Binding var estaApresentado: Bool
+    let localHotel = ["Curitiba", "Distrito Federal", "Minas Gerais", "Rio de Janeiro", "São Paulo"] // os locais podem ser adicionados neste campo
+    @Binding var estaApresentado: Bool // variável binding para verificar o estado do componente
     
     var body: some View {
         
          ZStack {
-             Text("Selecione a categoria")
+             Text("Selecione o local")
                .font(
                  Font.custom("Poppins Medium", size: 15)
                    .weight(.bold)
@@ -24,7 +24,7 @@ struct Local: View {
                .frame(width: 287, height: 19, alignment: .center)
                .padding(.top, -160)
              
-             Text("Escolha o tipo de hospedagem desejado")
+             Text("Escolha o local do sua hospedagem")
                .font(Font.custom("Poppins", size: 12))
                .kerning(0.12)
                .multilineTextAlignment(.center)
@@ -49,7 +49,7 @@ struct Local: View {
                                  .shadow(color: .black.opacity(0.35), radius: 2, x: 0, y: 2)
                          }
                          ZStack{
-                             Text(localHotel)
+                             Text(localHotel) // criação dos componentes com seus respectivos nomes
                                .font(Font.custom("Poppins", size: 15))
                                .multilineTextAlignment(.center)
                                .foregroundColor(.white)
@@ -66,7 +66,6 @@ struct Local: View {
                  }
                  .scrollTargetLayout()
              }
-            // .frame(height: 250)
              .frame(width: 287, height: 250)
              .padding(.top, 80)
          }

@@ -115,7 +115,7 @@ struct ColetarData: View {
                     DatePicker("Escolha uma data", selection: $dataIDASelecionada, displayedComponents: [.date])
                     
                         .datePickerStyle(.graphical)
-                        .frame(width: 320, height: -20)
+                        .frame(width: 320, height: 40)
                         .scaleEffect(0.9)
                         .padding(.top, 60)
                             Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
@@ -125,7 +125,7 @@ struct ColetarData: View {
                     DatePicker("Escolha uma data", selection: $dataVOLTASelecionada, displayedComponents: [.date])
                         
                         .datePickerStyle(.graphical)
-                        .frame(width: 320, height: -20)
+                        .frame(width: 320, height: 40)
                         .scaleEffect(0.9)
                         .padding(.top, 60)
                             Text("Ida \(dataIDASelecionada.formatted(date: .numeric, time: .omitted))")
