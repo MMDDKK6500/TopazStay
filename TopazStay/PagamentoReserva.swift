@@ -14,6 +14,7 @@ struct PagamentoReserva: View {
     
     @State private var mostrarPopup: Bool = false
     
+    @State public var mostrarPopupSucesso: Bool = false
     var body: some View {
         ZStack {
             //Fundo em gradiente
@@ -82,7 +83,10 @@ struct PagamentoReserva: View {
                         
                         
                         //Botão Apple pay
-                        Button(action: { print("Botao Apple pay clicado")}){
+                        Button(action: {
+                            mostrarPopupSucesso = true
+                            print("Botao Apple pay clicado")
+                        }){
                             Rectangle()
                                 .foregroundColor(.clear)
                                 .frame(width: 198, height: 43)
@@ -201,7 +205,19 @@ struct PagamentoReserva: View {
                     .transition(.scale(scale: 0.9).combined(with: .opacity))
                     .zIndex(1) // Garante que fique no topo
             }
-            
+            if mostrarPopupSucesso{
+                Color.black.opacity(0.4)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation { mostrarPopupSucesso = false }
+                    }
+                
+                ReservaConfirmada( mostrarPopupSucesso: $mostrarPopupSucesso)
+                    .transition(.asymmetric(
+                        insertion: .opacity.combined(with: .scale(scale: 0.95)),
+                        removal: .opacity.combined(with: .scale(scale: 0.95))
+                    ))
+            }
         }
         .frame(width: 493, height: 852)
         
