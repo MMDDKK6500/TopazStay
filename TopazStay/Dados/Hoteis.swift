@@ -102,5 +102,94 @@ O horário de check-in é a partir das 14:00 e o check-out até as 12:00 do dia 
                 texto: "O quarto é muito confortável, bem limpo e organizado. A cama é excelente e proporcionou uma ótima noite de sono."
             )
         ]
+    ),
+    Hotel(
+        nome: "Chalé da ponte",
+        local: "Campos do Jordão",
+        avaliacao: 4,
+        descricao:
+"""
+Um beló sítio no centro de Campos de Jordão, com acesso rápido a pontos turísticos e trilhas ao ar livre.
+
+O horário de check-in é a partir das 14:00 e o check-out até as 12:00 do dia do fim da reserva.
+""",
+        imagem: "imagens/chale/5",
+        favorito: false,
+        categoria: CategoriaHotel.chale,
+        quartos: [
+            Quarto(
+                nome: "Chalé Um",
+                descricao:
+"""
+Um chalé no prédio principal do sítio, com vista linda do centro de capivari
+""",
+                maxPessoas: 3,
+                valor: 550.00,
+                imagem: "imagens/quartos/11"
+            ),
+            Quarto(
+                nome: "Chalé Dois",
+                descricao:
+"""
+Um chalé maior no prédio principal do sítio, com vista linda do centro de capivari
+""",
+                maxPessoas: 5,
+                valor: 700.00,
+                imagem: "imagens/quartos/12"
+            )
+        ],
+        comentarios: [
+            Comentario(
+                foto: "imagens/pousada/14",
+                nome: "Anderson da Souza",
+                avaliacao: 5,
+                texto: "Local incrível com vistas lindas, perto de pontos turísticos")
+        ]
+    ),
+    Hotel(
+        nome: "Fazenda Bahia",
+        local: "Barueri - SP",
+        avaliacao: 5,
+        descricao:
+"""
+Hotel-Fazenda no interior de Barueri, com vistas lindas das planices.
+
+Serviços de café da manhã, almoço e jantar especial.
+
+O horário de check-in é a partir das 14:00 e o check-out até as 12:00 do dia do fim da reserva.
+""",
+        imagem: "imagens/pousadas/6",
+        favorito: false,
+        categoria: CategoriaHotel.hotelFazenda,
+        quartos: [
+            Quarto(
+                nome: "Quarto simples",
+                descricao:
+"""
+Um quarto ideal para casais, uma cama de casal e área de lazer ao ar livre
+""",
+                maxPessoas: 2,
+                valor: 350.00,
+                imagem: "imagens/quartos/27"
+            ),
+            Quarto(
+                nome: "Casa grande",
+                descricao:
+"""
+Uma casa completa, com 3 quartos e sala de estár
+""",
+                maxPessoas: 6,
+                valor: 850.00,
+                imagem: "imagens/quartos/14"
+            )
+        ],
+        comentarios: [
+            Comentario(
+                foto: "imagens/pousada/14",
+                nome: "Anderson da Souza",
+                avaliacao: 5,
+                texto: "Local incrível com vistas lindas, bem aconchegante")
+        ]
     )
+
 ]
