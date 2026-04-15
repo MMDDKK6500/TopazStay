@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct PagamentoApp: View {
-    @State public var nomeHotel: String = "NomeHotelVAR"
-    @State public var valorTotal: Double = 1500.00
+    @State var hotel: Hotel
+    @EnvironmentObject var dados: ObservableDados
+    
     @State private var mostrarPopupCC: Bool = false
     @State private var mostrarPopupPix: Bool = false
     
@@ -43,7 +44,7 @@ struct PagamentoApp: View {
                             .padding(.top ,20)
                             .padding(.bottom ,0)
                         VStack{
-                            Text(nomeHotel)
+                            Text(hotel.nome)
                                 .font(
                                     Font.custom("Rounded Mplus 1c", size: 36)
                                         .weight(.heavy)
@@ -59,7 +60,7 @@ struct PagamentoApp: View {
                             
                             //Valor Total
                             //  let valorFormatado = String(format: "%.2f", valorTotal)
-                            Text("Valor total: R$\(String(format: "%.2f", valorTotal))")
+                            Text("Valor total: R$\(String(format: "%.2f", somaDosQuartos(quartos: dados.escolhaQuartos)))")
                                 .font(
                                     Font.custom("Poppin", size: 20)
                                     
@@ -211,8 +212,4 @@ struct PagamentoApp: View {
             }
         }
     }
-}
-
-#Preview {
-    PagamentoApp()
 }

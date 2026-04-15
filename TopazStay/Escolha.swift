@@ -10,6 +10,7 @@ import SwiftUI
 struct Escolha: View {
    // @State private var showSheet: Bool = false
     
+    @State var hotel: Hotel
     @EnvironmentObject var dados: ObservableDados
     
     @State private var offset:CGFloat = 60
@@ -77,7 +78,7 @@ struct Escolha: View {
                                 .frame(width: 350, height: 421)
                             }
                             NavigationLink {
-                                TelaConfirmacao()
+                                TelaConfirmacao(hotel: hotel, escolhaQuarto: dados.escolhaQuartos)
                             } label: {
                                 Rectangle()
                                     .frame(width: 183, height: 36)
@@ -139,51 +140,4 @@ struct Escolha: View {
                 }//safeAreaInset(edge: .bottom)
     
     }//.safeAreaInset(edge: .bottom)
-}
-
-
-
-#Preview {
-    Escolha()
-    
-    
-    
-    /*  @Previewable let hotel: Hotel = Hotel(
-     nome: "Hotel dos bão",
-     local: "aqui",
-     avaliacao: 5,
-     descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana",
-     imagem: "imagens/hoteis/2",
-     favorito: true,
-     quartos: [
-         Quarto(
-             nome: "Padrão",
-             descricao: "Descrição genial",
-             maxPessoas: 2,
-             valor: 350,
-             imagem: "imagens/quartos/8"
-         ),
-         Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
-         Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
-         Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")],
-     comentarios: [
-         Comentario(
-             foto: "logo",
-             nome: "Guilherme",
-             avaliacao: 4,
-             texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
-         ),
-         Comentario(
-             foto: "logo",
-             nome: "Guilherme",
-             avaliacao: 4,
-             texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
-         ),
-         Comentario(
-             foto: "logo",
-             nome: "Guilherme",
-             avaliacao: 4,
-             texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
-         )
-     ])*/
 }

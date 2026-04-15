@@ -8,9 +8,8 @@ import SwiftUI
 
 struct TelaConfirmacao: View {
     
-    @State public var nomeHotel: String = "NomeHotelVAR"
-    @State public var somaValores: Double = 0.00
-    @State public var valorTotal: Double = 1500.00
+    @State var hotel: Hotel
+    @State var escolhaQuarto: [EscolhaQuarto]
      
     @State private var estaApresentado: Bool = false
     
@@ -40,16 +39,10 @@ struct TelaConfirmacao: View {
             
             ZStack{
                 ScrollView{
-                    ForEach(0..<4, id: \.self){ indice in
-                        ConfirmacaoQuarto(quarto: Quarto(
-                            nome: "Padrão",
-                            descricao: "Descrição genial",
-                            maxPessoas: 2,
-                            valor: 350,
-                            imagem: "imagens/quartos/8"
-                        ))
-                     //   somaValores += quarto.valor
-                                   }
+                    ForEach(escolhaQuarto)
+                    { escolha in
+                        ConfirmacaoQuarto(escolhaQuarto: escolha)
+                    }
                     
                 }
                 .frame(width:  200, height: 250)
@@ -58,7 +51,7 @@ struct TelaConfirmacao: View {
             }
             
             VStack{
-                Text(nomeHotel)
+                Text(hotel.nome)
                   .font(
                     Font.custom("Rounded Mplus 1c", size: 36)
                       .weight(.heavy)
@@ -73,7 +66,7 @@ struct TelaConfirmacao: View {
                 
                 //Valor Total
                // valorTotal = somaValores
-                Text("Valor total: R$\(String(format: "%.2f", valorTotal))")
+                Text("Valor total: R$\(String(format: "%.2f", somaDosQuartos(quartos: escolhaQuarto)))")
                 .font(
                     Font.custom("Poppin", size: 20)
                 )
@@ -122,7 +115,7 @@ struct TelaConfirmacao: View {
            
         
                 NavigationLink { //Tela Pagamento Reserva
-                    PagamentoReserva()
+                    PagamentoReserva(hotel: hotel)
                 } label: {
                     Rectangle()
                         .foregroundColor(.clear)
@@ -146,7 +139,7 @@ struct TelaConfirmacao: View {
             
             
             NavigationLink { // Tela Pagamento App
-                 PagamentoApp()
+                PagamentoApp(hotel: hotel)
             } label: {
                 Rectangle()
                     .foregroundColor(.clear)
@@ -191,14 +184,4 @@ struct TelaConfirmacao: View {
         
       
     }
-}
-
-
-#Preview {
-    
-    TelaConfirmacao()
-   
-    
-    
-    
 }

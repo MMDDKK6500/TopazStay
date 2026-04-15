@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ConfirmacaoQuarto: View {
-    var quarto: Quarto
+    var escolhaQuarto: EscolhaQuarto
     var body: some View {
         ZStack{
             Rectangle()
@@ -21,7 +21,7 @@ struct ConfirmacaoQuarto: View {
             
             
             VStack{
-                Text("\(quarto.nome)") // nome do quarto
+                Text("\(escolhaQuarto.quarto.nome)") // nome do quarto
                   .font(
                     Font.custom("Rounded Mplus 1c", size: 20)
                       .weight(.heavy)
@@ -35,13 +35,13 @@ struct ConfirmacaoQuarto: View {
                   .padding(.top, 5)
                   .padding(.leading, 0)
                 
-                Text("Valor do quarto R$ \(String(format: "%.2f", quarto.valor)) ") // preço
+                Text("Valor do quarto R$ \(String(format: "%.2f", escolhaQuarto.quarto.valor)) ") // preço
                   .font(Font.custom("Poppins", size: 15))
                   .foregroundColor(Color.cinzaTexto)
                   .frame(width: 276, alignment: .topLeading)
                   .padding(.top, -15)
                 
-                Text("x1") // quantidade
+                Text("x\(String(escolhaQuarto.quantidade))") // quantidade
                   .font(Font.custom("Poppins", size: 15))
                   .foregroundColor(Color.cinzaTexto)
                   .frame(width: 13, alignment: .topLeading)
@@ -53,15 +53,4 @@ struct ConfirmacaoQuarto: View {
        
       
     }
-}
-
-#Preview {
-    ConfirmacaoQuarto(quarto: Quarto(
-        nome: "Padrão",
-        descricao: "Descrição genial",
-        maxPessoas: 2,
-        valor: 350,
-        imagem: "imagens/quartos/8"
-    ))
-    
 }
