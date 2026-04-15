@@ -15,6 +15,9 @@ struct TelaCadastro: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var comfirmPW: String = ""
+    
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         // @State var moverCirculo = false
        // Vstack{   Image(.logo)}
@@ -29,13 +32,6 @@ struct TelaCadastro: View {
             
             VStack {
                 HStack {
-                    Button(action: {
-                        // Ação para voltar de tela
-                        }) {
-                            
-                        }
-                    
-                    // campo de confirmação de senha
                     Text("Criar conta")
                         .font(
                             Font.custom("Poppins-Regular", size: 30)
@@ -43,7 +39,8 @@ struct TelaCadastro: View {
                         )
                         .multilineTextAlignment(.center)
                         .foregroundColor(.cinzaTexto.opacity(0.6))
-                        .padding(.leading, 20)
+                        .padding(.leading, 35)
+                        .padding(.top, 19)
                     
                     Spacer()
                 }
@@ -76,7 +73,9 @@ struct TelaCadastro: View {
                 .padding(.horizontal, 20)
                 .padding(.top, 8)
                     
-                Button(action: { print("Botao clicado")}){ // verificar dados e mudar tela
+                Button(action: {
+                    dismiss()
+                }){ // verificar dados e mudar tela
                  Rectangle()
                       .foregroundColor(.clear)
                       .frame(width: 172, height: 54)
@@ -100,12 +99,10 @@ struct TelaCadastro: View {
                  .padding(.horizontal, 0)
                  .padding(.top, -50)
             
-        }
-           
-        }
+            }
+        }.ignoresSafeArea()
     }
 }
 #Preview {
     TelaCadastro()
 }
-

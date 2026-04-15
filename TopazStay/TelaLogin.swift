@@ -64,6 +64,7 @@ struct TelaLogin: View {
                         NavigationLink {
                             ContentView()
                                 .navigationBarBackButtonHidden(true)
+                                
                         } label: {
                             Text("Entrar")
                                 .font(.custom("Poppins-Medium", size: 20))
@@ -80,9 +81,9 @@ struct TelaLogin: View {
                         HStack {
                             Text("Não tem uma conta?")
                                 .font(Font.custom("Poppins-Regular", size: 15))
-                            NavigationLink{
+                            NavigationLink {
                                 TelaCadastro()
-                                    .navigationBarBackButtonHidden(false)
+                                .navigationBarBackButtonHidden(false)
                             }label:{
                                 Text("Cadastre-se!")
                                     .font(Font.custom("Poppins-Medium", size: 15)) //é pra ser bold
