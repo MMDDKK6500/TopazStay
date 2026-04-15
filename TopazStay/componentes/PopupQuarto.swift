@@ -38,11 +38,13 @@ struct PopupQuarto: View {
                     HStack(spacing: 0) {
                         Button("-") { if quantidade > 1 { quantidade -= 1 } }
                             .frame(width: 30, height: 30)
+                            .foregroundColor(Color.cinzaTexto)
                         Text("\(quantidade)")
                             .frame(width: 30, height: 30)
                             .background(Color.gray.opacity(0.2))
                         Button("+") { quantidade += 1 }
                             .frame(width: 30, height: 30)
+                            .foregroundColor(Color.cinzaTexto)
                     }
                     .background(Color.gray.opacity(0.1))
                     .cornerRadius(8)

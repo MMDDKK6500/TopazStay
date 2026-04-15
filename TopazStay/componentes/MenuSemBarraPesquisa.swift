@@ -9,15 +9,34 @@ import SwiftUI
 
 struct MenuSemBarraPesquisa: View {
     
+    @Binding var mostrarFiltroCategoria: Bool
+    @Binding var mostrarFiltroData: Bool
+    @Binding var mostrarFiltroLocal: Bool
+    
     var body: some View {
         VStack(spacing: 20) {
             
-            
             //filtros
             HStack (spacing: 10) {
-                BotaoFiltro(titulo: "Local")
-                BotaoFiltro(titulo: "Ida - Volta")
-                BotaoFiltro(titulo: "Categoria")
+                Button(action: {
+                    withAnimation { mostrarFiltroLocal = true }
+                }) {
+                    BotaoFiltro(titulo: "Local")
+                }
+                
+                // Botão Data
+                Button(action: {
+                    withAnimation { mostrarFiltroData = true }
+                }) {
+                    BotaoFiltro(titulo: "Ida - Volta")
+                }
+                
+                // Botão Categoria
+                Button(action: {
+                    withAnimation { mostrarFiltroCategoria = true }
+                }) {
+                    BotaoFiltro(titulo: "Categoria")
+                }
             }
             .padding(.horizontal, 20)
             
@@ -49,5 +68,13 @@ struct BotaoFiltro2: View {
 
 
 #Preview{
-    MenuSemBarraPesquisa()
+    @Previewable @State var local = false
+    @Previewable @State var data = false
+    @Previewable @State var categoria = false
+
+    MenuSemBarraPesquisa(
+        mostrarFiltroCategoria: $categoria,
+        mostrarFiltroData: $data,
+        mostrarFiltroLocal: $local
+    )
 }

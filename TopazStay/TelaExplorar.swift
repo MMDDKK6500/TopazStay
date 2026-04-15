@@ -36,15 +36,16 @@ struct TelaExplorar: View {
                     mostrarFiltroData: $mostrarData,
                     mostrarFiltroLocal: $mostrarLocal
                 )
+                .ignoresSafeArea(edges: .top)
                 
                 Text("Verifique nossas opções de hotéis")
                     .font(.custom("Poppins-Regular", size: 18))
                     .foregroundColor(.cinzaTexto)
                     .opacity(0.8)
-                    .padding(.top, -40)
-                    .padding(.bottom, 0)
+                    .padding(.top, 22)
                 
                 ScrollView() {
+                    
                     VStack(spacing: 19){
                       
                         ForEach (hoteis) { hotel in
@@ -62,11 +63,9 @@ struct TelaExplorar: View {
                 }
                 //.padding(.top, -20)
             }
-            
-            // Aplica um leve desfoque no fundo quando um pop-up está aberto
             .blur(radius: (mostrarLocal || mostrarData || mostrarCategoria) ? 3 : 0)
+            .ignoresSafeArea(edges: .top)
             
-            // 2. Camada de Overlay Escura (Fecha ao clicar fora)
             if mostrarLocal || mostrarData || mostrarCategoria {
                 Color.black.opacity(0.3)
                     .ignoresSafeArea()
@@ -79,11 +78,10 @@ struct TelaExplorar: View {
                     }
             }
             
-            // 3. Renderização Condicional dos Pop-ups
             if mostrarLocal {
                 Local(estaApresentado: $mostrarLocal)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
-                    .zIndex(1) // Garante que fique no topo
+                    .zIndex(1) 
             }
             
             if mostrarData {

@@ -15,7 +15,7 @@ struct HotelCard: View {
             Rectangle()
                 .foregroundStyle(Color.white)
                 .containerRelativeFrame(.vertical) { size, axis in
-                    size * 0.32
+                    size * 0.35
                 }
                 .cornerRadius(12)
                 .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
@@ -27,7 +27,7 @@ struct HotelCard: View {
                             .scaledToFill()
                             .clipped()
                             .containerRelativeFrame(.vertical) { size, axis in
-                                size * 0.32
+                                size * 0.35
                             }
                             .containerRelativeFrame(.horizontal) { size, axis in
                                 size * 0.35
@@ -77,10 +77,12 @@ struct HotelCard: View {
                             .font(.custom("Poppins-Medium", size: 14))
                             .foregroundStyle(Color.black)
                     }
-                    .padding(.leading, 3)
+                    .padding(.leading, 9)
                 }
                 .padding(.leading, 20)
             }
         }
     }
 }
+
+

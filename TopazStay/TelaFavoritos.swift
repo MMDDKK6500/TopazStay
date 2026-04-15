@@ -10,8 +10,12 @@ import SwiftUI
 struct TelaFavoritos: View {
     
     var hoteis: [Hotel]
+    @State private var mostrarLocal: Bool = false
+    @State private var mostrarData: Bool = false
+    @State private var mostrarCategoria: Bool = false
     
     var body: some View {
+    
         ZStack {
             //Fundo em gradiente
             LinearGradient(
@@ -24,8 +28,12 @@ struct TelaFavoritos: View {
             //Conteúdo de tela
             VStack(alignment: .leading, spacing: 20) {
                     
-                MenuSemBarraPesquisa()
-                    .ignoresSafeArea()
+                MenuSemBarraPesquisa(
+                    mostrarFiltroCategoria: $mostrarCategoria,
+                    mostrarFiltroData: $mostrarData,
+                    mostrarFiltroLocal: $mostrarLocal
+                )
+                .ignoresSafeArea()
                 
                 Text("Favoritos")
                     .font(.custom("Poppins-Regular", size: 40))
@@ -49,6 +57,39 @@ struct TelaFavoritos: View {
             
             }
             .ignoresSafeArea(edges: .top)
+            .blur(radius: (mostrarLocal || mostrarData || mostrarCategoria) ? 3 : 0)
+
+            // Overlay Escuro (Fecha ao clicar fora)
+            if mostrarLocal || mostrarData || mostrarCategoria {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        withAnimation {
+                            mostrarLocal = false
+                            mostrarData = false
+                            mostrarCategoria = false
+                        }
+                    }
+            }
+
+            // Chamada dos Pop-ups
+            if mostrarLocal {
+                Local(estaApresentado: $mostrarLocal)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .zIndex(1)
+            }
+            
+            if mostrarData {
+                ColetarData(estaApresentado: $mostrarData)
+                    .transition(.scale.combined(with: .opacity))
+                    .zIndex(1)
+            }
+            
+            if mostrarCategoria {
+                Categoria(estaApresentado: $mostrarCategoria)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .zIndex(1)
+            }
         }
     }
 }

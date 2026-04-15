@@ -41,65 +41,30 @@ struct CardEscolha: View {
                 .padding(.top, -200)
                 .padding(.leading, -60)
             
-            Button(action: {
-                if escolhaQuarto.quantidade >= 1 {
-                    escolhaQuarto.quantidade -= 1
+            HStack(spacing: 0) {
+                Button("-") {
+                    if escolhaQuarto.quantidade > 1 {
+                        escolhaQuarto.quantidade -= 1
+                    }
                 }
-                print("Botao subtrair clicado")}){
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 50, height: 35)
-                    .background(Color.cinzaOpcaoCartao)
-                    .cornerRadius(10)
-            }
-              .padding(.top, -220)
-              .padding(.leading, 130)
-            Text("-")
-                .font(
-                    Font.custom("Poppins", size: 24)
-                        .weight(.heavy)
-                )
+                .frame(width: 30, height: 30)
                 .foregroundColor(.cinzaTexto)
-                .frame(width: 218, height: 30, alignment: .topLeading)
-                .padding(.top, -220)
-                .padding(.leading, 323)
-            Button(action: {
-                escolhaQuarto.quantidade += 1
-                print("Botao somar clicado")}){
-                Rectangle()
-                    .foregroundColor(.clear)
-                    .frame(width: 50, height: 35)
-                    .background(Color.cinzaOpcaoCartao)
-                    .cornerRadius(10)
-            }
-              .padding(.top, -220)
-              .padding(.leading, 240)
-            Text("+")
-                .font(
-                    Font.custom("Poppins", size: 24)
-                        .weight(.heavy)
-                )
+                
+                Text("\(escolhaQuarto.quantidade)")
+                    .frame(width: 30, height: 30)
+                    .background(Color.gray.opacity(0.2))
+                
+                Button("+") {
+                    escolhaQuarto.quantidade += 1
+                }
+                .frame(width: 30, height: 30)
                 .foregroundColor(.cinzaTexto)
-                .frame(width: 218, height: 30, alignment: .topLeading)
-                .padding(.top, -220)
-                .padding(.leading, 445)
+            }
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(8)
+            .padding(.top, -220)
+            .padding(.leading, 180)
             
-            Rectangle()
-              .foregroundColor(.clear)
-              .frame(width: 35, height: 35)
-              .background(Color.iconeCartaoCreditoExp)
-              .cornerRadius(10)
-              .padding(.top, -220)
-              .padding(.leading, 180)
-            Text(String(escolhaQuarto.quantidade))
-                .font(
-                    Font.custom("Poppins", size: 24)
-                        .weight(.heavy)
-                )
-                .foregroundColor(.white)
-                .frame(width: 218, height: 30, alignment: .center)
-                .padding(.top, -217)
-                .padding(.leading, 180)
             VStack{
                 Image(systemName: "wifi")
                     .frame(width: 218, height: 30, alignment: .center)
