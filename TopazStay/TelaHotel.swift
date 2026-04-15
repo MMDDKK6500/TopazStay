@@ -39,8 +39,8 @@ struct TelaHotel: View {
                             .clipped()
                             .ignoresSafeArea()
                         Button(action: {/*toggle*/}) {
-                            Image(systemName: hotel.favorito ? "heart.fill" : "heart")
-                                .foregroundStyle(hotel.favorito ? .red : Color.secondary)
+                            Image(systemName: "heart")
+                                .foregroundStyle(Color.red)
                                 .font(.title)
                                 .padding(.top, 60)
                                 .padding(.trailing, 20)

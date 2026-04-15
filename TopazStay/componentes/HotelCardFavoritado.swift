@@ -55,8 +55,8 @@ struct HotelCardFavoritado: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 148, height: 159)
                 Button(action: {/*toggle*/}) {
-                    Image(systemName: hotel.favorito ? "heart.fill" : "heart")
-                        .foregroundStyle(hotel.favorito ? .red : Color.secondary)
+                    Image(systemName: hotel.favorito ? "heart.fill" : "heart.fill")
+                        .foregroundStyle(.red)
                         .font(.title)
                         .padding(.top, 10)
                         .padding(.trailing, 20)
