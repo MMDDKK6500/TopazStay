@@ -77,7 +77,7 @@ struct HotelCard: View {
                             .font(.custom("Poppins-Medium", size: 14))
                             .foregroundStyle(Color.black)
                     }
-                    .padding(.leading, 9)
+                    .padding(.leading, 2)
                 }
                 .padding(.leading, 20)
             }
@@ -85,4 +85,6 @@ struct HotelCard: View {
     }
 }
 
-
+#Preview {
+    HotelCard(hotel: hoteis[0])
+}
