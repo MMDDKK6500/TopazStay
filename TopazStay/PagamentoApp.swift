@@ -9,8 +9,10 @@ import SwiftUI
 
 struct PagamentoApp: View {
     @State var hotel: Hotel
-    @EnvironmentObject var dados: ObservableDados
+    @EnvironmentObject var dados: ObservableDados // carregar dados do observable object
     
+    
+    // popups
     @State private var mostrarPopupCC: Bool = false
     @State private var mostrarPopupPix: Bool = false
     
@@ -55,7 +57,6 @@ struct PagamentoApp: View {
                                 .multilineTextAlignment(.center)
                                 .foregroundColor(.black)
                                 .minimumScaleFactor(0.4)
-                            //.maximumScaleFactor(1.0)
                                 .padding(.top,-260)
                                 .padding(.horizontal, 0)
                             

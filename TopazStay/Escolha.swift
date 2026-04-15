@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct Escolha: View {
-   // @State private var showSheet: Bool = false
+   
     
     @State var hotel: Hotel
     @EnvironmentObject var dados: ObservableDados
     
-    @State private var offset:CGFloat = 60
+    @State private var offset:CGFloat = 60 // ajustado para passar da metade da tela
     @State private var lastOffset: CGFloat = 0
-   // var soma: Double = 0
     
   
    
@@ -26,7 +25,7 @@ struct Escolha: View {
                     
                     let screenHeight = geometry.size.height
                     let minHeight = screenHeight / 6
-                    let maxHeight = screenHeight / 1.4
+                    let maxHeight = screenHeight / 1.4 // adicionado este valor para passar da metade da tela
                     
                 
                     ZStack(alignment: .bottom) {
@@ -95,7 +94,6 @@ struct Escolha: View {
                                     .foregroundColor(.white)
                                     .padding(.top, -35)
                                     .padding(.leading, 150)
-                                // ZStack {   .frame(width: 393, height: 520) }
                            
                            
                             Spacer()
@@ -118,18 +116,18 @@ struct Escolha: View {
                                 .onChanged { value in
                                     let newOffset = value.translation.height + lastOffset
                                     
-                                    // Limita entre aberto e fechado
+                                    // limite entre aberto e fechado
                                     if newOffset <= 0 && newOffset >= -(maxHeight - minHeight) {
                                         offset = newOffset
                                     }
                                 }
                                 .onEnded { _ in
                                     
-                                    // Se arrastou mais da metade, abre
+                                    // quando a janela passar da metade, arrastar pra cima
                                     if -offset > (maxHeight - minHeight) / 1.4 {
                                         offset = -(maxHeight - minHeight)
                                     } else {
-                                        offset = 60
+                                        offset = 60 // ajuste manual de tela
                                     }
                                     
                                     lastOffset = offset
@@ -137,7 +135,7 @@ struct Escolha: View {
                         )
                     }
                     
-                }//safeAreaInset(edge: .bottom)
+                }
     
-    }//.safeAreaInset(edge: .bottom)
+    }
 }

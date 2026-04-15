@@ -6,7 +6,6 @@
 //
 
 // safeAreaInset ,  comando para não passar de areas seguras de diferentes dispositivos
-//ScrollView
 
 import SwiftUI
 
@@ -19,8 +18,7 @@ struct TelaCadastro: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        // @State var moverCirculo = false
-       // Vstack{   Image(.logo)}
+        
         ZStack {
             //Fundo em gradiente
             LinearGradient(
@@ -52,7 +50,7 @@ struct TelaCadastro: View {
                     .frame(width: 244, height: 267)
                     .padding(.top,40)
              
-                //Inputs
+                //Inputfields
                 VStack {
                     TextFieldView(placeholder: "Nome completo", texto: $name).padding(.top, 50)
                     TextFieldView(placeholder: "E-mail", texto: $email)

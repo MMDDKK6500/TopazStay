@@ -157,7 +157,7 @@ struct PagamentoReserva: View {
             .blur(radius: mostrarPopup ? 3 : 0)
             .disabled(mostrarPopup) // desativa cliques no fundo enquanto o popup estiver aberto
             
-            // --- CAMADA 2: O POPUP ---
+            
             if mostrarPopup {
                 // fundo escurecido atrás do popup
                 Color.black.opacity(0.4)
