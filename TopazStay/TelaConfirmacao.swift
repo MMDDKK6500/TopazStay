@@ -63,9 +63,6 @@ struct TelaConfirmacao: View {
                         .padding(.vertical,-300)
                         .padding(.horizontal, 0)
                     
-                    
-                    //Valor Total
-                    // valorTotal = somaValores
                     Text("Valor total: R$\(String(format: "%.2f", somaDosQuartos(quartos: escolhaQuarto)))")
                         .font(
                             Font.custom("Poppin", size: 20)
@@ -75,7 +72,7 @@ struct TelaConfirmacao: View {
                         .padding(.top,-255)
                         .padding(.leading, 0)
                     
-                    Text("09/11/2026 - 13/11/2026") // data coletada e editável
+                    Text("09/11/2026 - 13/11/2026") // data
                         .font(
                             Font.custom("Poppins", size: 20)
                                 .weight(.medium)
@@ -100,7 +97,7 @@ struct TelaConfirmacao: View {
                     
                     
                 } // Fim do V Stack
-                .blur(radius: estaApresentado ? 10 : 0) // 2. O blur agora afeta tudo o que está acima
+                .blur(radius: estaApresentado ? 10 : 0) // efeito blur
                 .animation(.default, value: estaApresentado)
                 
                 Text("Onde você deseja realizar o pagamento?")
@@ -159,12 +156,6 @@ struct TelaConfirmacao: View {
                     .frame(width: 150, height: 15, alignment: .center)
                     .padding(.top,500)
                     .padding(.leading, 135)
-                /*
-                if estaApresentado == true{
-                    ZStack{
-                        ColetarData(estaApresentado: $estaApresentado)
-                    }.animation(.spring(), value: estaApresentado)
-                }*/
                 
                 
             } // fim do Z Stack
