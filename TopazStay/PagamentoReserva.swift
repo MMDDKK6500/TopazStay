@@ -201,6 +201,7 @@ struct PagamentoReserva: View {
                     .transition(.scale(scale: 0.9).combined(with: .opacity))
                     .zIndex(1) // Garante que fique no topo
             }
+            
         }
         .frame(width: 493, height: 852)
         

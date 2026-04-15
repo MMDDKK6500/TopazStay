@@ -14,6 +14,8 @@ struct PagamentoApp: View {
     @State private var mostrarPopupCC: Bool = false
     @State private var mostrarPopupPix: Bool = false
     
+    @State public var mostrarPopupSucesso: Bool = false
+    
     var body: some View {
         
         ZStack {
@@ -83,7 +85,9 @@ struct PagamentoApp: View {
                             
                             
                             //Botão Apple pay
-                            Button(action: { print("Botao Apple pay clicado")}){
+                            Button(action: {
+                                mostrarPopupSucesso = true
+                                print("Botao Apple pay clicado")}){
                                 Rectangle()
                                     .foregroundColor(.clear)
                                     .frame(width: 198, height: 43)
@@ -208,6 +212,19 @@ struct PagamentoApp: View {
                     PopupPix(mostrar: $mostrarPopupPix)
                         .transition(.scale(scale: 0.9).combined(with: .opacity))
                         .zIndex(1)
+                }
+                if mostrarPopupSucesso{
+                    Color.black.opacity(0.4)
+                        .ignoresSafeArea()
+                        .onTapGesture {
+                            withAnimation { mostrarPopupSucesso = false }
+                        }
+                    
+                    ReservaConfirmada( mostrarPopupSucesso: $mostrarPopupSucesso)
+                        .transition(.asymmetric(
+                            insertion: .opacity.combined(with: .scale(scale: 0.95)),
+                            removal: .opacity.combined(with: .scale(scale: 0.95))
+                        ))
                 }
             }
         }
