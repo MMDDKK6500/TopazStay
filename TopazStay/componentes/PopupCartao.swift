@@ -95,26 +95,7 @@ struct PopupCartao: View {
                             
                         }
                         
-                        /*
-                        NavigationLink {
-                            ContentView(selectTab: .reservas)
-                                .navigationBarBackButtonHidden(true)
-                        }label: {
-                                
-                                //reserva confirmada
-                            
-                                Text("Pagar")
-                                    .foregroundStyle(Color.white)
-                                    .font(Font.custom("Poppins-Medium", size: 15))
-                                    .padding(15)
-                                    .padding(.horizontal)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 5)
-                                            .fill(Color.bordaCartaoBotaoPopup)
-                                            .shadow(color: .black.opacity(0.25), radius: 2, x: 0, y: 1)
-                                    )
-                            
-                        }*/}
+                      }
                 }
                 .padding()
                 .padding(.horizontal, 30)
