@@ -98,58 +98,13 @@ struct ReservaCard: View {
 
 #Preview {
     
-    @Previewable let hotel: Hotel = Hotel(
-        nome: "Hotel dos bão",
-        local: "aqui",
-        avaliacao: 5,
-        descricao: "Hotel muito bom com uma descrição muito boa que nunca acaba pois esse hotel realmente é muito muito bom ta?\n\nTipo, muito bom mesmo mano, c não tem IDEIA do quão bom esse hotel é mano, slg, se chama copacaban palace, e vc NUNCA vai adivinhar isso... fica em copacabana",
-        imagem: "imagens/hoteis/2",
-        favorito: true,
-        categoria: CategoriaHotel.hotel,
-        quartos: [
-            Quarto(
-                nome: "Padrão",
-                descricao: "Descrição genial",
-                maxPessoas: 2,
-                valor: 350,
-                imagem: "imagens/quartos/8"
-            ),
-            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
-            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8"),
-            Quarto(nome: "Padrão", descricao: "Descrição genial", maxPessoas: 2, valor: 350, imagem: "imagens/quartos/8")],
-        comentarios: [
-            Comentario(
-                foto: "logo",
-                nome: "Guilherme",
-                avaliacao: 4,
-                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
-            ),
-            Comentario(
-                foto: "logo",
-                nome: "Guilherme",
-                avaliacao: 4,
-                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
-            ),
-            Comentario(
-                foto: "logo",
-                nome: "Guilherme",
-                avaliacao: 4,
-                texto: "Hotel incrível, recomendo muito!dsadsdsadsadsadsadsdasdsadsadasdsadsadasd",
+    ReservaCard(
+        reserva:
+            Reserva(
+                hotel: hoteis[0],
+                quartosSelecionados: [hoteis[0].quartos[0]],
+                dataInicio: Date(),
+                dataFim: Date()
             )
-        ])
-    
-    ReservaCard(reserva:
-                    Reserva(
-                        hotel: hotel,
-                        quartosSelecionados: [hotel.quartos.first ?? Quarto(
-                            nome: "Padrão",
-                            descricao: "Descrição genial",
-                            maxPessoas: 2,
-                            valor: 350,
-                            imagem: "imagens/quartos/8"
-                        )],
-                        dataInicio: Date(),
-                        dataFim: Date()
-                    )
     )
 }

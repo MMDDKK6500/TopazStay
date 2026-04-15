@@ -13,5 +13,17 @@ var reservas: [Reserva] = [
         quartosSelecionados: [hoteis[0].quartos[0]],
         dataInicio: Date(),
         dataFim: Date()
+    ),
+    Reserva(
+        hotel: hoteis[1],
+        quartosSelecionados: [hoteis[1].quartos[0]],
+        dataInicio: Date(timeIntervalSinceNow: 10000),
+        dataFim: Date(timeIntervalSinceNow: 100000)
+    ),
+    Reserva(
+        hotel: hoteis[1],
+        quartosSelecionados: [hoteis[1].quartos[0]],
+        dataInicio: Date(timeIntervalSinceNow: -1000000),
+        dataFim: Date(timeIntervalSinceNow: -100000)
     )
 ]

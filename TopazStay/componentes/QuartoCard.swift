@@ -16,7 +16,7 @@ import SwiftUI
 
 struct QuartoCard: View {
     
-    var quarto: Quarto
+    @State var quarto: Quarto
     // Estado que controla se o card está aberto ou fechado
     @State private var estaExpandido: Bool = false
     var aoSelecionar: () -> Void
