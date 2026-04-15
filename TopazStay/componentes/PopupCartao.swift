@@ -19,6 +19,9 @@ struct PopupCartao: View {
     @State public var mostrarPopupSucesso: Bool = false
 
     @State private var path = ContentView(selectTab: .reservas)
+    
+    @EnvironmentObject var dados: ObservableDados
+    
     var body: some View {
         // parte da agatha
         Group {
@@ -87,6 +90,7 @@ struct PopupCartao: View {
                         Button(action: {
                             withAnimation {
                                 mostrarPopupSucesso = true
+                                dados.escolhaQuartos = []
                             }
                         }) { Text("Pagar")
                                     .foregroundStyle(Color.white)

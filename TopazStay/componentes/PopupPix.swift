@@ -14,6 +14,7 @@ struct PopupPix: View {
     @Binding var mostrar: Bool
     @State public var mostrarPopupSucesso: Bool = false
     
+    @EnvironmentObject var dados: ObservableDados
     
     var body: some View {
         Group{
@@ -34,7 +35,7 @@ struct PopupPix: View {
                     
                     Button(action: {
                         withAnimation {
-                            
+                            dados.escolhaQuartos = []
                             mostrarPopupSucesso = true
                         }
                     }) {Image("qrcode")
@@ -47,7 +48,7 @@ struct PopupPix: View {
                     
                     Button(action: {
                         withAnimation {
-                            
+                            dados.escolhaQuartos = []
                             mostrarPopupSucesso = true
                         }
                     }) {

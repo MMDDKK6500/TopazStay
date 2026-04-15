@@ -85,7 +85,7 @@ struct PagamentoReserva: View {
                         //Botão Apple pay
                         Button(action: {
                             mostrarPopupSucesso = true
-                            print("Botao Apple pay clicado")
+                            dados.escolhaQuartos = []
                         }){
                             Rectangle()
                                 .foregroundColor(.clear)
