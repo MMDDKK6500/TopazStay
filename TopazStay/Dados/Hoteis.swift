@@ -113,7 +113,7 @@ Um beló sítio no centro de Campos de Jordão, com acesso rápido a pontos tur�
 
 O horário de check-in é a partir das 14:00 e o check-out até as 12:00 do dia do fim da reserva.
 """,
-        imagem: "imagens/chale/5",
+        imagem: "imagens/chale/4",
         favorito: false,
         categoria: CategoriaHotel.chale,
         quartos: [
@@ -158,7 +158,7 @@ Serviços de café da manhã, almoço e jantar especial.
 
 O horário de check-in é a partir das 14:00 e o check-out até as 12:00 do dia do fim da reserva.
 """,
-        imagem: "imagens/pousadas/6",
+        imagem: "imagens/pousada/10",
         favorito: false,
         categoria: CategoriaHotel.hotelFazenda,
         quartos: [

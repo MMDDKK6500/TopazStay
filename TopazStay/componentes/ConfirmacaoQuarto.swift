@@ -44,13 +44,10 @@ struct ConfirmacaoQuarto: View {
                 Text("x\(String(escolhaQuarto.quantidade))") // quantidade de quartos
                   .font(Font.custom("Poppins", size: 15))
                   .foregroundColor(Color.cinzaTexto)
-                  .frame(width: 13, alignment: .topLeading)
+                  .frame(width: 25, alignment: .topLeading)
                   .padding(.top, -55)
                   .padding(.leading, 250)
             }
         }
-        
-       
-      
     }
 }
