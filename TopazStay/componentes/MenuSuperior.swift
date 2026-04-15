@@ -10,6 +10,9 @@ import SwiftUI
 struct MenuSuperior: View {
     
     @Binding var textoPesquisa: String
+    @Binding var mostrarFiltroCategoria: Bool
+    @Binding var mostrarFiltroData: Bool
+    @Binding var mostrarFiltroLocal: Bool
     
     var body: some View {
         VStack(spacing: 20) {
@@ -36,9 +39,29 @@ struct MenuSuperior: View {
             
             //filtros
             HStack (spacing: 10) {
-                BotaoFiltro(titulo: "Local")
-                BotaoFiltro(titulo: "Ida - Volta")
-                BotaoFiltro(titulo: "Categoria")
+                //BotaoFiltro(titulo: "Local")
+                //BotaoFiltro(titulo: "Ida - Volta")
+                //BotaoFiltro(titulo: "Categoria")
+                // Botão Local
+                    Button(action: {
+                        withAnimation { mostrarFiltroLocal = true }
+                    }) {
+                        BotaoFiltro(titulo: "Local")
+                    }
+                    
+                    // Botão Data
+                    Button(action: {
+                        withAnimation { mostrarFiltroData = true }
+                    }) {
+                        BotaoFiltro(titulo: "Ida - Volta")
+                    }
+                    
+                    // Botão Categoria
+                    Button(action: {
+                        withAnimation { mostrarFiltroCategoria = true }
+                    }) {
+                        BotaoFiltro(titulo: "Categoria")
+                    }
             }
             .padding(.horizontal, 20)
             
@@ -66,4 +89,19 @@ struct BotaoFiltro: View {
             .background(Color.black.opacity(0.2))
             .cornerRadius(20)
     }
+}
+
+
+#Preview {
+    @Previewable @State var texto = ""
+    @Previewable @State var local = false
+    @Previewable @State var data = false
+    @Previewable @State var categoria = false
+
+    MenuSuperior(
+        textoPesquisa: $texto,
+        mostrarFiltroCategoria: $categoria,
+        mostrarFiltroData: $data,
+        mostrarFiltroLocal: $local
+    )
 }

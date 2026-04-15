@@ -9,12 +9,10 @@ import SwiftUI
 
 struct Local: View {
     let localHotel = ["Curitiba", "Distrito Federal", "Minas Gerais", "Rio de Janeiro", "São Paulo"]
-                          
+    @Binding var estaApresentado: Bool
+    
     var body: some View {
         
-        
-         
-         
          ZStack {
              Text("Selecione a categoria")
                .font(
@@ -37,7 +35,12 @@ struct Local: View {
              ScrollView(.vertical){
                  VStack{
                      ForEach(localHotel, id: \.self){ localHotel in
-                         Button(action: { print("Botao \(localHotel) clicado ")}){
+                         Button(action: {
+                             print("Botao \(localHotel) clicado ")
+                             withAnimation {
+                                 estaApresentado = false
+                             }
+                         }){
                              Rectangle()
                                  .foregroundColor(.clear)
                                  .frame(width: 242, height: 40)
@@ -76,5 +79,6 @@ struct Local: View {
 
 
 #Preview {
-    Local()
+    @Previewable @State var mostrar = true
+    Local(estaApresentado: $mostrar)
 }

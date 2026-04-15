@@ -12,12 +12,9 @@ import SwiftUI
 
 struct Categoria: View {
     let categoriaHotel = ["Apartamento", "Chalé", "Hotel", "Hotel-Fazenda", "Pousada", "Resort"] // Adicione aqui os elementos
+    @Binding var estaApresentado: Bool
     
     var body: some View {
-        
-       
-       
-        
         
         ZStack {
             Text("Selecione a categoria")
@@ -41,7 +38,12 @@ struct Categoria: View {
             ScrollView(.vertical){
                 VStack{
                     ForEach(categoriaHotel, id: \.self){ categoriaHotel in
-                        Button(action: { print("Botao \(categoriaHotel) clicado ")}){
+                        Button(action: {
+                            print("Botao \(categoriaHotel) clicado ")
+                            withAnimation {
+                                estaApresentado = false
+                            }
+                        }){
                             Rectangle()
                                 .foregroundColor(.clear)
                                 .frame(width: 242, height: 40)
@@ -80,5 +82,6 @@ struct Categoria: View {
 }
 
 #Preview {
-    Categoria()
+    @Previewable @State var mostrar = true
+    Categoria(estaApresentado: $mostrar)
 }
